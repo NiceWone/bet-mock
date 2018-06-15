@@ -1,4 +1,16 @@
+<nav>
+  <div class="nav-wrapper">
+    <a href="#" class="brand-logo right">Logo</a>
+    <ul id="nav-mobile" class="left hide-on-med-and-down">
+      <li><a routerLink="/">Главная</a></li>
+      <li><a routerLink="/group">Группы</a></li>
+      <li><a routerLink="/">Плей-офф</a></li>
+      <li><a routerLink="/dashboard">Панель</a></li>
+    </ul>
+  </div>
+</nav>
+
 <div class="card-panel center-align hoverable">
   <h4 class="truncate">{{title}}</h4>
 </div>
-<app-table></app-table>
+<router-outlet></router-outlet>

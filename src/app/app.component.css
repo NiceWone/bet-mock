@@ -2,3 +2,7 @@
   /*padding: 20px;*/
   /*margin: 10px;*/
 }
+
+.my-menu > a{
+  padding-left: 10px;
+}
