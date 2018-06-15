@@ -1,5 +1,4 @@
 import {Component} from '@angular/core';
-import {GROUPS} from './model/mock-groups';
 
 @Component({
   selector: 'app-root',
@@ -9,5 +8,4 @@ import {GROUPS} from './model/mock-groups';
 export class AppComponent {
 
   title = '2018 FIFA World Cup Russia™';
-  groups = GROUPS;
 }

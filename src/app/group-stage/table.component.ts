@@ -1,7 +1,8 @@
-import {Component, Input, OnInit} from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {log} from 'util';
 import {MATCHES} from '../model/mock-matches';
 import {Match} from '../model/match';
+import {GROUPS} from '../model/mock-groups';
 
 @Component({
   selector: 'app-table',
@@ -10,7 +11,7 @@ import {Match} from '../model/match';
 })
 export class TableComponent implements OnInit {
 
-  @Input() group;
+  groups = GROUPS;
 
   matches: Match[];
 
