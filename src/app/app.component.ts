@@ -1,5 +1,5 @@
 import {Component} from '@angular/core';
-import {GROUPS} from './mock-groups';
+import {GROUPS} from './model/mock-groups';
 
 @Component({
   selector: 'app-root',
