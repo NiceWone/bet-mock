@@ -367,4 +367,126 @@ export const MATCHES: Match[] = [
     scoreSecondTeam: null,
     date: parseDate('28.06, 17:00')
   },
+  // 1/8
+  {
+    id: 48,
+    firstTeam: null,
+    secondTeam: null,
+    scoreFirstTeam: null,
+    scoreSecondTeam: null,
+    date: parseDate('30.06, 17:00')
+  }, {
+    id: 49,
+    firstTeam: null,
+    secondTeam: null,
+    scoreFirstTeam: null,
+    scoreSecondTeam: null,
+    date: parseDate('30.06, 21:00')
+  }, {
+    id: 50,
+    firstTeam: null,
+    secondTeam: null,
+    scoreFirstTeam: null,
+    scoreSecondTeam: null,
+    date: parseDate('01.07, 17:00')
+  }, {
+    id: 51,
+    firstTeam: null,
+    secondTeam: null,
+    scoreFirstTeam: null,
+    scoreSecondTeam: null,
+    date: parseDate('01.07, 21:00')
+  }, {
+    id: 52,
+    firstTeam: null,
+    secondTeam: null,
+    scoreFirstTeam: null,
+    scoreSecondTeam: null,
+    date: parseDate('02.07, 17:00')
+  }, {
+    id: 53,
+    firstTeam: null,
+    secondTeam: null,
+    scoreFirstTeam: null,
+    scoreSecondTeam: null,
+    date: parseDate('02.07, 21:00')
+  }, {
+    id: 54,
+    firstTeam: null,
+    secondTeam: null,
+    scoreFirstTeam: null,
+    scoreSecondTeam: null,
+    date: parseDate('03.07, 17:00')
+  }, {
+    id: 55,
+    firstTeam: null,
+    secondTeam: null,
+    scoreFirstTeam: null,
+    scoreSecondTeam: null,
+    date: parseDate('03.07, 21:00')
+  },
+  // 1/4
+  {
+    id: 56,
+    firstTeam: null,
+    secondTeam: null,
+    scoreFirstTeam: null,
+    scoreSecondTeam: null,
+    date: parseDate('06.07, 17:00')
+  }, {
+    id: 57,
+    firstTeam: null,
+    secondTeam: null,
+    scoreFirstTeam: null,
+    scoreSecondTeam: null,
+    date: parseDate('06.07, 21:00')
+  }, {
+    id: 58,
+    firstTeam: null,
+    secondTeam: null,
+    scoreFirstTeam: null,
+    scoreSecondTeam: null,
+    date: parseDate('07.07, 17:00')
+  }, {
+    id: 59,
+    firstTeam: null,
+    secondTeam: null,
+    scoreFirstTeam: null,
+    scoreSecondTeam: null,
+    date: parseDate('07.07, 21:00')
+  },
+  // 1/2
+  {
+    id: 60,
+    firstTeam: null,
+    secondTeam: null,
+    scoreFirstTeam: null,
+    scoreSecondTeam: null,
+    date: parseDate('10.07, 21:00')
+  }, {
+    id: 61,
+    firstTeam: null,
+    secondTeam: null,
+    scoreFirstTeam: null,
+    scoreSecondTeam: null,
+    date: parseDate('11.07, 21:00')
+  },
+  // 3d place match
+  {
+    id: 62,
+    firstTeam: null,
+    secondTeam: null,
+    scoreFirstTeam: null,
+    scoreSecondTeam: null,
+    date: parseDate('14.07, 17:00')
+  },
+  // final
+  {
+    id: 63,
+    firstTeam: null,
+    secondTeam: null,
+    scoreFirstTeam: null,
+    scoreSecondTeam: null,
+    date: parseDate('15.07, 18:00')
+  },
 ];
