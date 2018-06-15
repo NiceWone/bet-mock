@@ -22,9 +22,8 @@
           </tr>
           </tbody>
         </table>
-        <a class="waves-effect waves-light btn" (click)="showDetails(group.id)">Подробнее</a>
+        <a class="waves-effect waves-light btn" routerLink="/group/{{group.id}}">Подробнее</a>
       </div>
     </div>
   </div>
-  <app-group-stage-details [group]="groupsSelected"></app-group-stage-details>
 </div>

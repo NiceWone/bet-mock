@@ -1,4 +1,8 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, Input, OnInit} from '@angular/core';
+import {Match} from '../model/match';
+import {ActivatedRoute} from '@angular/router';
+import {Location} from '@angular/common';
+import {MatchService} from '../services/match.service';
 
 @Component({
   selector: 'app-match',
@@ -7,9 +11,26 @@ import { Component, OnInit } from '@angular/core';
 })
 export class MatchComponent implements OnInit {
 
-  constructor() { }
+  @Input() match: Match;
 
-  ngOnInit() {
+  constructor(
+    private route: ActivatedRoute,
+    private matchService: MatchService,
+    private location: Location
+  ) {
   }
 
+  ngOnInit(): void {
+    this.getMatch();
+  }
+
+  private getMatch() {
+    const id = +this.route.snapshot.paramMap.get('id');
+    this.matchService.getMatch(id)
+      .subscribe(match => this.match = match);
+  }
+
+  goBack(): void {
+    this.location.back();
+  }
 }

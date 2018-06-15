@@ -1,5 +1,4 @@
 import {Component, OnInit} from '@angular/core';
-import {log} from 'util';
 import {Match} from '../model/match';
 import {GroupService} from '../services/group.service';
 import {Group} from '../model/group';
@@ -14,7 +13,6 @@ export class GroupComponent implements OnInit {
 
   groups: Group[];
   matches: Match[];
-  groupsSelected;
 
   constructor(
     private groupsService: GroupService,
@@ -24,20 +22,6 @@ export class GroupComponent implements OnInit {
   ngOnInit() {
     this.getGroups();
     this.getMatches();
-  }
-
-  showDetails(id: number) {
-    this.groupsSelected = this.groups[id];
-    const start = id * 6;
-    const end = start + 6;
-    for (let i = start; i < end; i++) {
-      const team1 = this.matches[i].firstTeam.name;
-      const team2 = this.matches[i].secondTeam.name;
-      const score1 = this.matches[i].scoreFirstTeam;
-      const score2 = this.matches[i].scoreSecondTeam;
-      const date = this.matches[i].date;
-      log(date + '   ---   ' + team1 + ' ' + score1 + ':' + score2 + ' ' + team2);
-    }
   }
 
   getGroups(): void {

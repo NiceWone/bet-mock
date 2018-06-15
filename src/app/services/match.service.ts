@@ -14,4 +14,8 @@ export class MatchService {
 
   constructor() {
   }
+
+  getMatch(id: number): Observable<Match> {
+    return of(MATCHES.find(hero => hero.id === id));
+  }
 }

@@ -1,3 +1,7 @@
-<p>
-  match works!
-</p>
+<div *ngIf="match">
+  <h2>{{ match.id }} Details</h2>
+  <div><span>id: </span>{{match.id}}</div>
+  <div>
+  </div>
+  <button (click)="goBack()">go back</button>
+</div>

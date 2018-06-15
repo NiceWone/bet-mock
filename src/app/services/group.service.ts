@@ -2,6 +2,8 @@ import {Injectable} from '@angular/core';
 import {Observable, of} from 'rxjs';
 import {Group} from '../model/group';
 import {GROUPS} from '../model/mock-groups';
+import {Match} from '../model/match';
+import {MATCHES} from '../model/mock-matches';
 
 @Injectable({
   providedIn: 'root'
@@ -13,5 +15,9 @@ export class GroupService {
   }
 
   constructor() {
+  }
+
+  getGroup(id: number): Observable<Group> {
+    return of(GROUPS.find(group => group.id === id));
   }
 }
