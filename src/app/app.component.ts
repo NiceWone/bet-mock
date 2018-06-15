@@ -8,6 +8,6 @@ import {GROUPS} from './mock-groups';
 })
 export class AppComponent {
 
-  title = 'Test';
+  title = '2018 FIFA World Cup Russia™';
   groups = GROUPS;
 }
