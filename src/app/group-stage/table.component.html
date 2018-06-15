@@ -1,0 +1,25 @@
+<div class="col s3" style="padding: 20px">
+  <div class="card" style="text-align:center;">
+    <table class="striped responsive-table">
+      <thead>
+      <tr>
+        <th></th>
+        <th>{{group.name}}</th>
+        <th>М</th>
+        <th>О</th>
+      </tr>
+      </thead>
+
+      <tbody>
+      <tr *ngFor="let team of group.teams; let i=index">
+        <td>{{i + 1}}</td>
+        <td>{{team.name}}</td>
+        <td>0</td>
+        <td>0</td>
+      </tr>
+      </tbody>
+    </table>
+    <a class="waves-effect waves-light btn">Подробнее</a>
+  </div>
+</div>
+
