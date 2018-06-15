@@ -25,7 +25,12 @@ export class TableComponent implements OnInit {
     const start = id * 6;
     const end = start + 6;
     for (let i = start; i < end; i++) {
-      log(this.matches[i].firstTeam.name + ' : ' + this.matches[i].secondTeam.name);
+      const team1 = this.matches[i].firstTeam.name;
+      const team2 = this.matches[i].secondTeam.name;
+      const score1 = this.matches[i].scoreFirstTeam;
+      const score2 = this.matches[i].scoreSecondTeam;
+      const date = this.matches[i].date;
+      log(date + '   ---   ' + team1 + ' ' + score1 + ':' + score2 + ' ' + team2);
     }
   }
 }
