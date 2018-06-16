@@ -1,5 +1,6 @@
 export class Team {
   id: number;
   name: string;
-  flag: string;
+  points: number;
+  matches: number;
 }

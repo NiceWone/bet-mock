@@ -33,7 +33,7 @@
     <div class="module hero">
       {{
       (match.firstTeam === null ? 'TBD' : match.firstTeam.name)
-      + ' - ' +
+      + ' ' + match.scoreFirstTeam + ' - ' + match.scoreSecondTeam + ' ' +
       (match.secondTeam === null ? 'TBD' : match.secondTeam.name)
       }}
     </div>

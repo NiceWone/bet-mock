@@ -27,8 +27,8 @@ export const MATCHES: Match[] = [
     id: 1,
     firstTeam: TEAMS[1],
     secondTeam: TEAMS[2],
-    scoreFirstTeam: null,
-    scoreSecondTeam: null,
+    scoreFirstTeam: 0,
+    scoreSecondTeam: 1,
     date: parseDate('15.06, 15:00')
   }, {
     id: 2,
@@ -64,15 +64,15 @@ export const MATCHES: Match[] = [
     id: 6,
     firstTeam: TEAMS[7],
     secondTeam: TEAMS[6],
-    scoreFirstTeam: null,
-    scoreSecondTeam: null,
+    scoreFirstTeam: 0,
+    scoreSecondTeam: 1,
     date: parseDate('15.06, 18:00')
   }, {
     id: 7,
     firstTeam: TEAMS[4],
     secondTeam: TEAMS[5],
-    scoreFirstTeam: null,
-    scoreSecondTeam: null,
+    scoreFirstTeam: 3,
+    scoreSecondTeam: 3,
     date: parseDate('15.06, 21:00')
   }, {
     id: 8,

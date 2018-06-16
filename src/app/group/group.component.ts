@@ -11,8 +11,8 @@ import {MatchService} from '../services/match.service';
 })
 export class GroupComponent implements OnInit {
 
-  groups: Group[];
-  matches: Match[];
+  groups: Group[] = [];
+  matches: Match[] = [];
 
   constructor(
     private groupsService: GroupService,
@@ -22,6 +22,7 @@ export class GroupComponent implements OnInit {
   ngOnInit() {
     this.getGroups();
     this.getMatches();
+    this.calculateAllGroups();
   }
 
   getGroups(): void {
@@ -31,6 +32,40 @@ export class GroupComponent implements OnInit {
 
   getMatches(): void {
     this.matchService.getMatches()
-      .subscribe(matches => this.matches = matches);
+      .subscribe(match => this.matches.push(match));
+  }
+
+  private calculateAllGroups() {
+    this.groups.forEach(e => this.calculateGroup(e));
+    this.groups.forEach(e => this.sortTeams(e));
+  }
+
+  private calculateGroup(gr: Group) {
+    const start = gr.id * 6;
+    const end = start + 6;
+
+    for (let i = start; i < end; i++) {
+      const match = this.matches[i];
+      if (match.scoreFirstTeam != null && match.scoreSecondTeam != null) {
+        match.secondTeam.matches++;
+        match.firstTeam.matches++;
+
+        if (match.scoreFirstTeam === match.scoreSecondTeam) {
+          match.firstTeam.points++;
+          match.secondTeam.points++;
+        } else if (match.scoreFirstTeam > match.scoreSecondTeam) {
+          match.firstTeam.points += 3;
+        } else {
+          match.secondTeam.points += 3;
+        }
+      }
+    }
+  }
+
+
+  private sortTeams(gr: Group) {
+    gr.teams.sort((a, b) => {
+      return b.points - a.points;
+    });
   }
 }
