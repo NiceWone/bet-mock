@@ -1,5 +1,5 @@
 import {Injectable} from '@angular/core';
-import {Observable, of} from 'rxjs';
+import {from, Observable, of} from 'rxjs';
 import {MATCHES} from '../model/mock-matches';
 import {Match} from '../model/match';
 
@@ -8,8 +8,8 @@ import {Match} from '../model/match';
 })
 export class MatchService {
 
-  getMatches(): Observable<Match[]> {
-    return of(MATCHES);
+  getMatches(): Observable<Match> {
+    return from(MATCHES);
   }
 
   constructor() {
