@@ -29,8 +29,14 @@ export class DashboardComponent implements OnInit {
     temp.pipe(
       filter(match => match.date < new Date()))
       .subscribe(match => this.passedMatches.push(match));
-    this.futureMatches.sort(function (a, b) {
-      return new Date(a.date) - new Date(b.date);
+    this.futureMatches.sort(function (date1, date2) {
+      if (date1 > date2) {
+        return 1;
+      }
+      if (date1 < date2) {
+        return -1;
+      }
+      return 0;
     });
     this.actualMatches = this.futureMatches.slice(0, 4);
     this.futureMatches = this.futureMatches.slice(4, this.futureMatches.length);

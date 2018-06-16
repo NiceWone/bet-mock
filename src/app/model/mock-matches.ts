@@ -108,8 +108,8 @@ export const MATCHES: Match[] = [
     id: 12,
     firstTeam: TEAMS[8],
     secondTeam: TEAMS[10],
-    scoreFirstTeam: null,
-    scoreSecondTeam: null,
+    scoreFirstTeam: 2,
+    scoreSecondTeam: 1,
     date: parseDate('16.06, 13:00')
   }, {
     id: 13,

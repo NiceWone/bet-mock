@@ -47,8 +47,8 @@ export class GroupComponent implements OnInit {
     for (let i = start; i < end; i++) {
       const match = this.matches[i];
       if (match.scoreFirstTeam != null && match.scoreSecondTeam != null) {
-        match.secondTeam.matches++;
         match.firstTeam.matches++;
+        match.secondTeam.matches++;
 
         if (match.scoreFirstTeam === match.scoreSecondTeam) {
           match.firstTeam.points++;
