@@ -2,7 +2,7 @@
 <div class="grid grid-pad">
   <a *ngFor="let match of actualMatches" class="col-1-4"
      routerLink="/match/{{match.id}}">
-    <div class="module hero">
+    <div class="module">
       {{
       match.date.toLocaleString() + ' ' +
       (match.firstTeam === null ? 'TBD' : match.firstTeam.name)
@@ -17,7 +17,7 @@
 <div class="grid grid-pad">
   <a *ngFor="let match of futureMatches" class="col-1-4"
      routerLink="/match/{{match.id}}">
-    <div class="module hero">
+    <div class="module">
       {{
       match.date.toLocaleString() + ' ' +
       (match.firstTeam === null ? 'TBD' : match.firstTeam.name)
@@ -32,7 +32,7 @@
 <div class="grid grid-pad">
   <a *ngFor="let match of passedMatches" class="col-1-4"
      routerLink="/match/{{match.id}}">
-    <div class="module hero">
+    <div class="module">
       {{
       (match.firstTeam === null ? 'TBD' : match.firstTeam.name)
       + ' ' + match.scoreFirstTeam + ' - ' + match.scoreSecondTeam + ' ' +

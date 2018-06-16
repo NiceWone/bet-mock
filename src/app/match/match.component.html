@@ -1,7 +1,26 @@
-<div *ngIf="match">
-  <h2>{{ match.id }} Details</h2>
-  <div><span>id: </span>{{match.id}}</div>
-  <div>
+<div class="container">
+  <div *ngIf="match">
+    <div class="row">
+      <div class="card large blue-grey darken-1">
+        <div class="card-content white-text">
+          <span class="card-title center">{{match.firstTeam.name + ' - ' + match.secondTeam.name}}</span>
+          <p class="center">
+            {{match.scoreFirstTeam + ' ---- ' + match.scoreSecondTeam}}
+          </p>
+
+          <span class="left">
+            {{match.date}}
+          </span>
+
+          <span class="right">
+            {{match.date}}
+          </span>
+        </div>
+        <div class="card-action">
+          <a class="waves-effect waves-light btn-small" (click)="goBack()">Назад</a>
+          <a class="waves-effect waves-light btn right" (click)="showa()">Показать голоса других</a>
+        </div>
+      </div>
+    </div>
   </div>
-  <button (click)="goBack()">go back</button>
 </div>
