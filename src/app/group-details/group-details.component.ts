@@ -1,10 +1,9 @@
-import {Component, Input, OnInit} from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {Group} from '../model/group';
 import {ActivatedRoute} from '@angular/router';
 import {Location} from '@angular/common';
 import {GroupService} from '../services/group.service';
 import {Match} from '../model/match';
-import {MATCHES} from '../model/mock-matches';
 
 @Component({
   selector: 'app-group-stage-details',
@@ -13,7 +12,7 @@ import {MATCHES} from '../model/mock-matches';
 })
 export class GroupDetailsComponent implements OnInit {
 
-  @Input() group: Group;
+  group: Group;
   matches: Match[] = [];
 
   constructor(
@@ -39,7 +38,7 @@ export class GroupDetailsComponent implements OnInit {
   }
 
   private getGroupMatches() {
-    this.matches = MATCHES.slice(0, 6);
-    // this.groupService.getMatches(this.group.id);
+    this.groupService.getMatches(this.group.id)
+      .subscribe(m => this.matches.push(m));
   }
 }

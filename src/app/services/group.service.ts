@@ -1,5 +1,5 @@
 import {Injectable} from '@angular/core';
-import {Observable, of} from 'rxjs';
+import {from, Observable, of} from 'rxjs';
 import {Group} from '../model/group';
 import {GROUPS} from '../model/mock-groups';
 import {Match} from '../model/match';
@@ -19,5 +19,9 @@ export class GroupService {
 
   getGroup(id: number): Observable<Group> {
     return of(GROUPS.find(group => group.id === id));
+  }
+
+  getMatches(id: number) {
+    return from(MATCHES.slice(id * 6, id * 6 + 6));
   }
 }
