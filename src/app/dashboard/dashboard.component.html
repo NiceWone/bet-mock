@@ -4,6 +4,7 @@
      routerLink="/match/{{match.id}}">
     <div class="module hero">
       {{
+      match.date.toLocaleString() + ' ' +
       (match.firstTeam === null ? 'TBD' : match.firstTeam.name)
       + ' - ' +
       (match.secondTeam === null ? 'TBD' : match.secondTeam.name)
@@ -18,6 +19,7 @@
      routerLink="/match/{{match.id}}">
     <div class="module hero">
       {{
+      match.date.toLocaleString() + ' ' +
       (match.firstTeam === null ? 'TBD' : match.firstTeam.name)
       + ' - ' +
       (match.secondTeam === null ? 'TBD' : match.secondTeam.name)
