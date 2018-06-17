@@ -1,7 +1,6 @@
 import {Component, OnInit} from '@angular/core';
 import {Match} from '../model/match';
 import {MatchService} from '../services/match.service';
-import {filter} from 'rxjs/operators';
 
 @Component({
   selector: 'app-dashboard',
@@ -22,22 +21,30 @@ export class DashboardComponent implements OnInit {
   }
 
   private getMatches() {
-    const temp = this.matchService.getMatches();
-    temp.pipe(
-      filter(match => match.date > new Date()))
-      .subscribe(match => this.futureMatches.push(match));
-    temp.pipe(
-      filter(match => match.date < new Date()))
-      .subscribe(match => this.passedMatches.push(match));
-    this.futureMatches.sort(function (date1, date2) {
-      if (date1 > date2) {
+    this.matchService.getMatches()
+      .subscribe(matches => this.doShit(matches));
+  }
+
+  private doShit(matches: Match[]) {
+    matches.sort(function (match1: Match, match2: Match) {
+      if (match1.date > match2.date) {
         return 1;
       }
-      if (date1 < date2) {
+      if (match1.date < match2.date) {
         return -1;
       }
       return 0;
     });
+
+    for (const match of matches) {
+      console.log(match.id);
+      if (new Date(match.date) > new Date()) {
+        this.futureMatches.push(match);
+      } else {
+        this.passedMatches.push(match);
+      }
+    }
+
     this.actualMatches = this.futureMatches.slice(0, 4);
     this.futureMatches = this.futureMatches.slice(4, this.futureMatches.length);
   }

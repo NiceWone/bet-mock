@@ -32,7 +32,7 @@ export class GroupComponent implements OnInit {
 
   getMatches(): void {
     this.matchService.getMatches()
-      .subscribe(match => this.matches.push(match));
+      .subscribe(match => this.matches = match);
   }
 
   private calculateAllGroups() {

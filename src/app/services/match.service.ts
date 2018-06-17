@@ -11,9 +11,9 @@ export class MatchService {
 
   private matchesUrl = 'api/matches';
 
-  getMatches(): Observable<Match> {
-    return from(MATCHES);
-    // return this.http.get<Match>(this.matchesUrl);
+  getMatches(): Observable<Match[]> {
+    // return of(MATCHES);
+    return this.http.get<Match[]>(this.matchesUrl);
   }
 
   constructor(private http: HttpClient) {
