@@ -62,7 +62,6 @@ export class GroupComponent implements OnInit {
     }
   }
 
-
   private sortTeams(gr: Group) {
     gr.teams.sort((a, b) => {
       return b.points - a.points;
