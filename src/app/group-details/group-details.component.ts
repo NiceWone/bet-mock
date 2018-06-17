@@ -38,7 +38,8 @@ export class GroupDetailsComponent implements OnInit {
   }
 
   private getGroupMatches() {
-    this.groupService.getMatches(this.group.id)
-      .subscribe(m => this.matches.push(m));
+    const id = +this.route.snapshot.paramMap.get('id');
+    this.groupService.getMatches(id)
+      .subscribe(m => this.matches = m);
   }
 }
