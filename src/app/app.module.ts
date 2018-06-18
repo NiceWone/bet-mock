@@ -7,10 +7,12 @@ import {GroupDetailsComponent} from './group-details/group-details.component';
 import {AppRoutingModule} from './app-routing.module';
 import {DashboardComponent} from './dashboard/dashboard.component';
 import {MatchComponent} from './match/match.component';
+import {FormsModule} from '@angular/forms'; // <-- NgModel lives here
 
 import {HttpClientInMemoryWebApiModule} from 'angular-in-memory-web-api';
 import {InMemoryDataService} from './services/in-memory-data.service';
 import {HttpClientModule} from '@angular/common/http';
+import {PlayOffComponent} from './play-off/play-off.component';
 
 @NgModule({
   declarations: [
@@ -18,10 +20,12 @@ import {HttpClientModule} from '@angular/common/http';
     GroupComponent,
     GroupDetailsComponent,
     DashboardComponent,
-    MatchComponent
+    MatchComponent,
+    PlayOffComponent
   ],
   imports: [
     BrowserModule,
+    FormsModule,
     AppRoutingModule,
     HttpClientModule,
     HttpClientInMemoryWebApiModule.forRoot(
@@ -31,4 +35,5 @@ import {HttpClientModule} from '@angular/common/http';
   providers: [],
   bootstrap: [AppComponent]
 })
-export class AppModule { }
+export class AppModule {
+}

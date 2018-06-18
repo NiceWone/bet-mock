@@ -22,5 +22,21 @@
         </div>
       </div>
     </div>
+
+    <div>
+      <label>id:
+        <input [(ngModel)]="match.id" placeholder="id" disabled/>
+      </label>
+      <label>scoreFirstTeam:
+        <input [(ngModel)]="match.scoreFirstTeam" placeholder="scoreFirstTeam"/>
+      </label>
+      <label>scoreSecondTeam:
+        <input [(ngModel)]="match.scoreSecondTeam" placeholder="scoreSecondTeam"/>
+      </label>
+      <label>date:
+        <input [(ngModel)]="match.date" placeholder="date" disabled/>
+      </label>
+      <button (click)="updateMatch()">save</button>
+    </div>
   </div>
 </div>

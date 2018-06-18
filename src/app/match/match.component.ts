@@ -33,4 +33,9 @@ export class MatchComponent implements OnInit {
   goBack(): void {
     this.location.back();
   }
+
+  updateMatch(): void {
+    this.matchService.update(this.match)
+      .subscribe(() => this.goBack());
+  }
 }

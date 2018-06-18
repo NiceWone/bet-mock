@@ -4,12 +4,14 @@ import {GroupComponent} from './group/group.component';
 import {DashboardComponent} from './dashboard/dashboard.component';
 import {MatchComponent} from './match/match.component';
 import {GroupDetailsComponent} from './group-details/group-details.component';
+import {PlayOffComponent} from './play-off/play-off.component';
 
 const routes: Routes = [
   {path: '', redirectTo: '/', pathMatch: 'full'},
   {path: 'dashboard', component: DashboardComponent},
   {path: 'match/:id', component: MatchComponent},
   {path: 'group', component: GroupComponent},
+  {path: 'play-off', component: PlayOffComponent},
   {path: 'group/:id', component: GroupDetailsComponent},
 ];
 

@@ -4,14 +4,27 @@ import {Match} from '../model/match';
 import {HttpClient, HttpHeaders} from '@angular/common/http';
 import {catchError, tap} from 'rxjs/operators';
 
+const httpOptions = {
+  headers: new HttpHeaders({'Content-Type': 'application/json'})
+};
+
 @Injectable({
   providedIn: 'root'
 })
 export class MatchService {
 
   private matchesUrl = 'api/matches';
+  private testUrl = '//localhost:8080/cool-cars';
 
   constructor(private http: HttpClient) {
+  }
+
+  getTestDate(): Observable<any> {
+    return this.http.get(this.testUrl)
+      .pipe(
+        tap(() => console.log(`fetched matches`)),
+        catchError(this.handleError('getMatches', []))
+      );
   }
 
   getMatches(): Observable<Match[]> {
@@ -27,7 +40,15 @@ export class MatchService {
     return this.http.get<Match>(`${this.matchesUrl}/${id}`)
       .pipe(
         tap(() => console.log(`fetched match id=${id}`)),
-        catchError(this.handleError('getMatch', [])));
+        catchError(this.handleError<Match>(`getMatch id=${id}`)));
+  }
+
+  /** PUT: update the hero on the server */
+  update(match: Match): Observable<any> {
+    return this.http.put(this.matchesUrl, match, httpOptions).pipe(
+      tap(() => console.log(`updated match id=${match.id}`)),
+      catchError(this.handleError<any>('updateMatch'))
+    );
   }
 
   /**

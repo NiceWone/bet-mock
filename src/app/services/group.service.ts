@@ -29,7 +29,7 @@ export class GroupService {
     return this.http.get<Group>(`${this.groupsUrl}/${id}`)
       .pipe(
         tap(() => console.log(`fetched group id=${id}`)),
-        catchError(this.handleError('getGroup', [])));
+        catchError(this.handleError<Group>(`getGroup id=${id}`)));
   }
 
   /** GET matches by id. Will 404 if id not found */
