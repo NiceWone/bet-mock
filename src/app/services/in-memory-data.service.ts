@@ -188,8 +188,8 @@ export class InMemoryDataService implements InMemoryDbService {
         id: 13,
         firstTeam: TEAMS[11],
         secondTeam: TEAMS[9],
-        scoreFirstTeam: null,
-        scoreSecondTeam: null,
+        scoreFirstTeam: 0,
+        scoreSecondTeam: 1,
         date: parseDate('16.06, 19:00')
       }, {
         id: 14,
@@ -225,15 +225,15 @@ export class InMemoryDataService implements InMemoryDbService {
         id: 18,
         firstTeam: TEAMS[14],
         secondTeam: TEAMS[13],
-        scoreFirstTeam: null,
-        scoreSecondTeam: null,
+        scoreFirstTeam: 1,
+        scoreSecondTeam: 1,
         date: parseDate('16.06, 16:00')
       }, {
         id: 19,
         firstTeam: TEAMS[12],
         secondTeam: TEAMS[15],
-        scoreFirstTeam: null,
-        scoreSecondTeam: null,
+        scoreFirstTeam: 2,
+        scoreSecondTeam: 0,
         date: parseDate('16.06, 22:00')
       }, {
         id: 20,
@@ -269,15 +269,15 @@ export class InMemoryDataService implements InMemoryDbService {
         id: 24,
         firstTeam: TEAMS[19],
         secondTeam: TEAMS[17],
-        scoreFirstTeam: null,
-        scoreSecondTeam: null,
+        scoreFirstTeam: 0,
+        scoreSecondTeam: 1,
         date: parseDate('17.06, 15:00')
       }, {
         id: 25,
         firstTeam: TEAMS[18],
         secondTeam: TEAMS[16],
-        scoreFirstTeam: null,
-        scoreSecondTeam: null,
+        scoreFirstTeam: 1,
+        scoreSecondTeam: 1,
         date: parseDate('17.06, 21:00')
       }, {
         id: 26,
@@ -313,8 +313,8 @@ export class InMemoryDataService implements InMemoryDbService {
         id: 30,
         firstTeam: TEAMS[20],
         secondTeam: TEAMS[23],
-        scoreFirstTeam: null,
-        scoreSecondTeam: null,
+        scoreFirstTeam: 0,
+        scoreSecondTeam: 1,
         date: parseDate('17.06, 18:00')
       }, {
         id: 31,
