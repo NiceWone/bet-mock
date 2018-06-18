@@ -37,6 +37,3 @@ testem.log
 # System Files
 Thumbs.db
 /package-lock.json
-/src/app/model/mock-teams.ts
-/src/app/model/mock-matches.ts
-/src/app/model/mock-groups.ts
