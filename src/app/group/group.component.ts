@@ -32,18 +32,18 @@ export class GroupComponent implements OnInit {
     this.groups.forEach(group => this.calculateGroup(group));
   }
 
-  private calculateGroup(gr: Group) {
-    this.groupService.getMatches(gr.id)
+  private calculateGroup(group: Group) {
+    this.groupService.getMatches(group.id)
       .subscribe(matches => {
-        matches.forEach(match => this.calc(match, gr));
-        this.sortTeams(gr);
+        matches.forEach(match => this.calc(match, group));
+        this.sortTeams(group);
       });
   }
 
-  private calc(match: Match, gr: Group): void {
+  private calc(match: Match, group: Group): void {
 
-    const team1 = gr.teams.find(x => x.id === match.firstTeam.id);
-    const team2 = gr.teams.find(x => x.id === match.secondTeam.id);
+    const team1 = group.teams.find(x => x.id === match.firstTeam.id);
+    const team2 = group.teams.find(x => x.id === match.secondTeam.id);
 
     if (match.scoreFirstTeam != null && match.scoreSecondTeam != null) {
       team1.matches++;

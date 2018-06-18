@@ -30,7 +30,14 @@ export class GroupDetailsComponent implements OnInit {
   private getGroup() {
     const id = +this.route.snapshot.paramMap.get('id');
     this.groupService.getGroup(id)
-      .subscribe(group => this.group = group);
+      .subscribe(group => {
+        this.group = group;
+        this.groupService.getMatches(group.id)
+          .subscribe(matches => {
+            matches.forEach(match => this.calc(match, group));
+            this.sortTeams(group);
+          });
+      });
   }
 
   goBack(): void {
@@ -41,5 +48,31 @@ export class GroupDetailsComponent implements OnInit {
     const id = +this.route.snapshot.paramMap.get('id');
     this.groupService.getMatches(id)
       .subscribe(m => this.matches = m);
+  }
+
+  private calc(match: Match, gr: Group): void {
+
+    const team1 = gr.teams.find(x => x.id === match.firstTeam.id);
+    const team2 = gr.teams.find(x => x.id === match.secondTeam.id);
+
+    if (match.scoreFirstTeam != null && match.scoreSecondTeam != null) {
+      team1.matches++;
+      team2.matches++;
+
+      if (match.scoreFirstTeam === match.scoreSecondTeam) {
+        team1.points++;
+        team2.points++;
+      } else if (match.scoreFirstTeam > match.scoreSecondTeam) {
+        team1.points += 3;
+      } else {
+        team2.points += 3;
+      }
+    }
+  }
+
+  private sortTeams(gr: Group) {
+    gr.teams.sort((a, b) => {
+      return b.points - a.points;
+    });
   }
 }
