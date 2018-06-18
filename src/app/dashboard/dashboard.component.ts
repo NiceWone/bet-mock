@@ -35,7 +35,7 @@ export class DashboardComponent implements OnInit {
       }
       return 0;
     });
-    // WTF
+    // WTF new Date()
     for (const match of matches) {
       if (new Date(match.date) > new Date()) {
         this.futureMatches.push(match);
