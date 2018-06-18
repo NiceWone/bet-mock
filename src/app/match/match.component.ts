@@ -38,4 +38,8 @@ export class MatchComponent implements OnInit {
     this.matchService.update(this.match)
       .subscribe(() => this.goBack());
   }
+
+  showBets() {
+    console.log('TODO :P');
+  }
 }
