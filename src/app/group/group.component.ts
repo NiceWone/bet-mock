@@ -2,6 +2,7 @@ import {Component, OnInit} from '@angular/core';
 import {Match} from '../model/match';
 import {GroupService} from '../services/group.service';
 import {Group} from '../model/group';
+import {MatchService} from '../services/match.service';
 
 @Component({
   selector: 'app-table',
@@ -13,7 +14,9 @@ export class GroupComponent implements OnInit {
   groups: Group[] = [];
 
   constructor(
-    private groupService: GroupService) {
+    private groupService: GroupService,
+    private matchService: MatchService,
+  ) {
   }
 
   ngOnInit() {
@@ -33,9 +36,8 @@ export class GroupComponent implements OnInit {
   }
 
   private calculateGroup(group: Group) {
-    this.groupService.getMatches(group.id)
+    this.matchService.getMatchesByGroup(group.id)
       .subscribe(matches => {
-        console.log(matches);
         matches.forEach(match => this.calc(match, group));
         this.sortTeams(group);
       });

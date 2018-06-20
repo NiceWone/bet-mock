@@ -1,17 +1,20 @@
 import {Injectable} from '@angular/core';
 import {Observable, of} from 'rxjs';
 import {Group} from '../model/group';
-import {HttpClient} from '@angular/common/http';
-import {Match} from '../model/match';
-import {catchError, map, tap} from 'rxjs/operators';
+import {HttpClient, HttpHeaders} from '@angular/common/http';
+import {catchError, tap} from 'rxjs/operators';
+
+const httpOptions = {
+  headers: new HttpHeaders({'Content-Type': 'application/json'})
+};
 
 @Injectable({
   providedIn: 'root'
 })
 export class GroupService {
 
-  private matchesUrl = '//localhost:8080/matches';
   private groupsUrl = '//localhost:8080/groups';
+
 
   constructor(private http: HttpClient) {
   }
@@ -32,17 +35,6 @@ export class GroupService {
         catchError(this.handleError<Group>(`getGroup id=${id}`)));
   }
 
-  /** GET matches by id. Will 404 if id not found */
-  getMatches(id: number): Observable<Match[]> {
-    return this.http.get<Match[]>(`${this.matchesUrl}`)
-      .pipe(
-        map(matches =>
-          matches.filter(x => (x.id >= id * 6 && x.id < id * 6 + 6))),
-        tap(() => console.log(`fetched matches for group  id=${id}`)),
-        catchError(this.handleError('getMatches', []))
-      );
-  }
-
   /**
    * Handle Http operation that failed.
    * Let the app continue.
@@ -57,5 +49,13 @@ export class GroupService {
 
       return of(result as T);
     };
+  }
+
+  /** PUT: update the hero on the server */
+  update(group: Group): Observable<any> {
+    return this.http.put(`${this.groupsUrl}/${group.id}`, group, httpOptions).pipe(
+      tap(() => console.log(`updated group id=${group.id}`)),
+      catchError(this.handleError<any>('updateGroup'))
+    );
   }
 }

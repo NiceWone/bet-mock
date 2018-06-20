@@ -4,6 +4,7 @@ import {ActivatedRoute} from '@angular/router';
 import {Location} from '@angular/common';
 import {GroupService} from '../services/group.service';
 import {Match} from '../model/match';
+import {MatchService} from '../services/match.service';
 
 @Component({
   selector: 'app-group-stage-details',
@@ -18,6 +19,7 @@ export class GroupDetailsComponent implements OnInit {
   constructor(
     private route: ActivatedRoute,
     private groupService: GroupService,
+    private matchService: MatchService,
     private location: Location
   ) {
   }
@@ -32,7 +34,7 @@ export class GroupDetailsComponent implements OnInit {
     this.groupService.getGroup(id)
       .subscribe(group => {
         this.group = group;
-        this.groupService.getMatches(group.id)
+        this.matchService.getMatchesByGroup(group.id)
           .subscribe(matches => {
             matches.forEach(match => this.calc(match, group));
             this.sortTeams(group);
@@ -46,7 +48,7 @@ export class GroupDetailsComponent implements OnInit {
 
   private getGroupMatches() {
     const id = +this.route.snapshot.paramMap.get('id');
-    this.groupService.getMatches(id)
+    this.matchService.getMatchesByGroup(id)
       .subscribe(m => this.matches = m);
   }
 

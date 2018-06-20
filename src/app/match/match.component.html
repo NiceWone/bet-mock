@@ -15,28 +15,15 @@
           <span class="right">
             {{match.date}}
           </span>
+
         </div>
         <div class="card-action">
-          <a class="waves-effect waves-light btn-small" (click)="goBack()">Назад</a>
+          <a class="waves-effect waves-light btn" (click)="goBack()">Назад</a>
           <a class="waves-effect waves-light btn right" (click)="showBets()">Показать голоса других</a>
+          <a class="waves-effect waves-light btn-small" routerLink="/edit/match/{{match.id}}">Подробнее</a>
         </div>
       </div>
     </div>
 
-    <div>
-      <label>id:
-        <input [(ngModel)]="match.id" placeholder="id" disabled/>
-      </label>
-      <label>scoreFirstTeam:
-        <input [(ngModel)]="match.scoreTeam1" placeholder="scoreFirstTeam"/>
-      </label>
-      <label>scoreSecondTeam:
-        <input [(ngModel)]="match.scoreTeam2" placeholder="scoreSecondTeam"/>
-      </label>
-      <label>date:
-        <input [(ngModel)]="match.date" placeholder="date" disabled/>
-      </label>
-      <button (click)="updateMatch()">save</button>
-    </div>
   </div>
 </div>

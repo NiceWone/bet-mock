@@ -13,6 +13,7 @@ import {FormsModule} from '@angular/forms'; // <-- NgModel lives here
 // import {InMemoryDataService} from './services/in-memory-data.service';
 import {HttpClientModule} from '@angular/common/http';
 import {PlayOffComponent} from './play-off/play-off.component';
+import { EditComponent } from './edit/edit.component';
 
 @NgModule({
   declarations: [
@@ -21,7 +22,8 @@ import {PlayOffComponent} from './play-off/play-off.component';
     GroupDetailsComponent,
     DashboardComponent,
     MatchComponent,
-    PlayOffComponent
+    PlayOffComponent,
+    EditComponent
   ],
   imports: [
     BrowserModule,

@@ -2,7 +2,7 @@ import {Injectable} from '@angular/core';
 import {Observable, of} from 'rxjs';
 import {Match} from '../model/match';
 import {HttpClient, HttpHeaders} from '@angular/common/http';
-import {catchError, tap} from 'rxjs/operators';
+import {catchError, map, tap} from 'rxjs/operators';
 
 const httpOptions = {
   headers: new HttpHeaders({'Content-Type': 'application/json'})
@@ -22,6 +22,17 @@ export class MatchService {
     return this.http.get<Match[]>(this.matchesUrl)
       .pipe(
         tap(() => console.log(`fetched matches`)),
+        catchError(this.handleError('getMatches', []))
+      );
+  }
+
+  /** GET matches by id. Will 404 if id not found */
+  getMatchesByGroup(id: number): Observable<Match[]> {
+    return this.http.get<Match[]>(`${this.matchesUrl}`)
+      .pipe(
+        map(matches =>
+          matches.filter(x => (x.id >= id * 6 && x.id < id * 6 + 6))),
+        tap(() => console.log(`fetched matches for group  id=${id}`)),
         catchError(this.handleError('getMatches', []))
       );
   }
