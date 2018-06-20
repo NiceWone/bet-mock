@@ -2,9 +2,9 @@ import {Team} from './team';
 
 export class Match {
   id: number;
-  firstTeam: Team;
-  secondTeam: Team;
-  scoreFirstTeam: number;
-  scoreSecondTeam: number;
+  team1: Team;
+  team2: Team;
+  scoreTeam1: number;
+  scoreTeam2: number;
   date: Date;
 }

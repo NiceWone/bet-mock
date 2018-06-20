@@ -1,5 +1,6 @@
 import {Component, OnInit} from '@angular/core';
 import {MatchService} from '../services/match.service';
+import {GroupService} from '../services/group.service';
 
 @Component({
   selector: 'app-play-off',
@@ -8,10 +9,10 @@ import {MatchService} from '../services/match.service';
 })
 export class PlayOffComponent implements OnInit {
 
-  private testString = 'cool';
-  cars: Array<any>;
+  testString = [];
 
-  constructor(private matchService: MatchService) {
+  constructor(private matchService: MatchService,
+              private groupService: GroupService) {
   }
 
   ngOnInit() {
@@ -19,10 +20,10 @@ export class PlayOffComponent implements OnInit {
   }
 
   private getData() {
-    this.matchService.getTestDate().subscribe(data => {
-      // this.cars = data;
+    // this.matchService.getMatches().subscribe(data => {
+    this.groupService.getGroups().subscribe(data => {
+      this.testString = data;
       console.log(data);
     });
   }
-
 }

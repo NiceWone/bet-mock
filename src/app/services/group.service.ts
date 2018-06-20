@@ -10,8 +10,8 @@ import {catchError, map, tap} from 'rxjs/operators';
 })
 export class GroupService {
 
-  private groupsUrl = 'api/groups';
-  private matchesUrl = 'api/matches';
+  private matchesUrl = '//localhost:8080/matches';
+  private groupsUrl = '//localhost:8080/groups';
 
   constructor(private http: HttpClient) {
   }

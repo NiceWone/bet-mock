@@ -52,17 +52,17 @@ export class GroupDetailsComponent implements OnInit {
 
   private calc(match: Match, gr: Group): void {
 
-    const team1 = gr.teams.find(x => x.id === match.firstTeam.id);
-    const team2 = gr.teams.find(x => x.id === match.secondTeam.id);
+    const team1 = gr.teams.find(x => x.id === match.team1.id);
+    const team2 = gr.teams.find(x => x.id === match.team2.id);
 
-    if (match.scoreFirstTeam != null && match.scoreSecondTeam != null) {
+    if (match.scoreTeam1 != null && match.scoreTeam2 != null) {
       team1.matches++;
       team2.matches++;
 
-      if (match.scoreFirstTeam === match.scoreSecondTeam) {
+      if (match.scoreTeam1 === match.scoreTeam2) {
         team1.points++;
         team2.points++;
-      } else if (match.scoreFirstTeam > match.scoreSecondTeam) {
+      } else if (match.scoreTeam1 > match.scoreTeam2) {
         team1.points += 3;
       } else {
         team2.points += 3;

@@ -44,7 +44,8 @@ export class DashboardComponent implements OnInit {
       }
     }
 
-    this.actualMatches = this.futureMatches.slice(0, 4);
-    this.futureMatches = this.futureMatches.slice(4, this.futureMatches.length);
+    const sliceFrom = this.futureMatches.length > 0 ? this.futureMatches.length : 0;
+    this.actualMatches = this.futureMatches.slice(0, sliceFrom);
+    this.futureMatches = this.futureMatches.slice(sliceFrom, this.futureMatches.length);
   }
 }

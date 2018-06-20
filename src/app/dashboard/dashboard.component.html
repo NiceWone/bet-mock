@@ -5,9 +5,9 @@
     <div class="module">
       {{
       match.date.toLocaleString() + ' ' +
-      (match.firstTeam === null ? 'TBD' : match.firstTeam.name)
+      (match.team1 === null ? 'TBD' : match.team1.name)
       + ' - ' +
-      (match.secondTeam === null ? 'TBD' : match.secondTeam.name)
+      (match.team2 === null ? 'TBD' : match.team2.name)
       }}
     </div>
   </a>
@@ -20,9 +20,9 @@
     <div class="module">
       {{
       match.date.toLocaleString() + ' ' +
-      (match.firstTeam === null ? 'TBD' : match.firstTeam.name)
+      (match.team1 === null ? 'TBD' : match.team1.name)
       + ' - ' +
-      (match.secondTeam === null ? 'TBD' : match.secondTeam.name)
+      (match.team2 === null ? 'TBD' : match.team2.name)
       }}
     </div>
   </a>
@@ -34,9 +34,9 @@
      routerLink="/match/{{match.id}}">
     <div class="module">
       {{
-      (match.firstTeam === null ? 'TBD' : match.firstTeam.name)
-      + ' ' + match.scoreFirstTeam + ' - ' + match.scoreSecondTeam + ' ' +
-      (match.secondTeam === null ? 'TBD' : match.secondTeam.name)
+      (match.team1 === null ? 'TBD' : match.team1.name)
+      + ' ' + match.scoreTeam1 + ' - ' + match.scoreTeam2 + ' ' +
+      (match.team2 === null ? 'TBD' : match.team2.name)
       }}
     </div>
   </a>

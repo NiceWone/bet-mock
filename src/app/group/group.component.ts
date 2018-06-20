@@ -35,6 +35,7 @@ export class GroupComponent implements OnInit {
   private calculateGroup(group: Group) {
     this.groupService.getMatches(group.id)
       .subscribe(matches => {
+        console.log(matches);
         matches.forEach(match => this.calc(match, group));
         this.sortTeams(group);
       });
@@ -42,17 +43,17 @@ export class GroupComponent implements OnInit {
 
   private calc(match: Match, group: Group): void {
 
-    const team1 = group.teams.find(x => x.id === match.firstTeam.id);
-    const team2 = group.teams.find(x => x.id === match.secondTeam.id);
+    const team1 = group.teams.find(x => x.id === match.team1.id);
+    const team2 = group.teams.find(x => x.id === match.team2.id);
 
-    if (match.scoreFirstTeam != null && match.scoreSecondTeam != null) {
+    if (match.scoreTeam1 != null && match.scoreTeam2 != null) {
       team1.matches++;
       team2.matches++;
 
-      if (match.scoreFirstTeam === match.scoreSecondTeam) {
+      if (match.scoreTeam1 === match.scoreTeam2) {
         team1.points++;
         team2.points++;
-      } else if (match.scoreFirstTeam > match.scoreSecondTeam) {
+      } else if (match.scoreTeam1 > match.scoreTeam2) {
         team1.points += 3;
       } else {
         team2.points += 3;

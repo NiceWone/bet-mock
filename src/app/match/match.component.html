@@ -3,9 +3,9 @@
     <div class="row">
       <div class="card large blue-grey darken-1">
         <div class="card-content white-text">
-          <span class="card-title center">{{match.firstTeam.name + ' - ' + match.secondTeam.name}}</span>
+          <span class="card-title center">{{match.team1.name + ' - ' + match.team2.name}}</span>
           <p class="center">
-            {{match.scoreFirstTeam + ' ---- ' + match.scoreSecondTeam}}
+            {{match.scoreTeam1 + ' ---- ' + match.scoreTeam2}}
           </p>
 
           <span class="left">
@@ -28,10 +28,10 @@
         <input [(ngModel)]="match.id" placeholder="id" disabled/>
       </label>
       <label>scoreFirstTeam:
-        <input [(ngModel)]="match.scoreFirstTeam" placeholder="scoreFirstTeam"/>
+        <input [(ngModel)]="match.scoreTeam1" placeholder="scoreFirstTeam"/>
       </label>
       <label>scoreSecondTeam:
-        <input [(ngModel)]="match.scoreSecondTeam" placeholder="scoreSecondTeam"/>
+        <input [(ngModel)]="match.scoreTeam2" placeholder="scoreSecondTeam"/>
       </label>
       <label>date:
         <input [(ngModel)]="match.date" placeholder="date" disabled/>

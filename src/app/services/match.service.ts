@@ -13,18 +13,9 @@ const httpOptions = {
 })
 export class MatchService {
 
-  private matchesUrl = 'api/matches';
-  private testUrl = '//localhost:8080/cool-cars';
+  private matchesUrl = '//localhost:8080/matches';
 
   constructor(private http: HttpClient) {
-  }
-
-  getTestDate(): Observable<any> {
-    return this.http.get(this.testUrl)
-      .pipe(
-        tap(() => console.log(`fetched matches`)),
-        catchError(this.handleError('getMatches', []))
-      );
   }
 
   getMatches(): Observable<Match[]> {
@@ -45,7 +36,7 @@ export class MatchService {
 
   /** PUT: update the hero on the server */
   update(match: Match): Observable<any> {
-    return this.http.put(this.matchesUrl, match, httpOptions).pipe(
+    return this.http.put(`${this.matchesUrl}/${match.id}`, match, httpOptions).pipe(
       tap(() => console.log(`updated match id=${match.id}`)),
       catchError(this.handleError<any>('updateMatch'))
     );

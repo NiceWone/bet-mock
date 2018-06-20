@@ -9,8 +9,8 @@ import {DashboardComponent} from './dashboard/dashboard.component';
 import {MatchComponent} from './match/match.component';
 import {FormsModule} from '@angular/forms'; // <-- NgModel lives here
 
-import {HttpClientInMemoryWebApiModule} from 'angular-in-memory-web-api';
-import {InMemoryDataService} from './services/in-memory-data.service';
+// import {HttpClientInMemoryWebApiModule} from 'angular-in-memory-web-api';
+// import {InMemoryDataService} from './services/in-memory-data.service';
 import {HttpClientModule} from '@angular/common/http';
 import {PlayOffComponent} from './play-off/play-off.component';
 
@@ -28,9 +28,7 @@ import {PlayOffComponent} from './play-off/play-off.component';
     FormsModule,
     AppRoutingModule,
     HttpClientModule,
-    HttpClientInMemoryWebApiModule.forRoot(
-      InMemoryDataService, {dataEncapsulation: false, delay: 1500}
-    )
+    // HttpClientInMemoryWebApiModule.forRoot(InMemoryDataService, {dataEncapsulation: false, delay: 1500})
   ],
   providers: [],
   bootstrap: [AppComponent]
