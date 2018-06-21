@@ -4,33 +4,33 @@
       <div class="card-content white-text">
         <div *ngIf="match">
           <span class="card-title center"> Матч </span>
-            <label>id:
-              <input [(ngModel)]="match.id" placeholder="id"/>
-            </label>
-            <label>Team1 id:
-              <input [(ngModel)]="match.team1.id" placeholder="team1.id"/>
-            </label>
-            <label>Team2 id:
-              <input [(ngModel)]="match.team2.id" placeholder="team2.id"/>
-            </label>
-            <label>scoreFirstTeam:
-              <input [(ngModel)]="match.scoreTeam1" placeholder="scoreFirstTeam"/>
-            </label>
-            <label>scoreSecondTeam:
-              <input [(ngModel)]="match.scoreTeam2" placeholder="scoreSecondTeam"/>
-            </label>
-            <label>date:
-              <input [(ngModel)]="match.date" placeholder="date"/>
-            </label>
+          <label>id:
+            <input [(ngModel)]="match.id" placeholder="id"/>
+          </label>
+          <label>Team1 id:
+            <input [(ngModel)]="match.team1.id" placeholder="team1.id"/>
+          </label>
+          <label>Team2 id:
+            <input [(ngModel)]="match.team2.id" placeholder="team2.id"/>
+          </label>
+          <label>scoreFirstTeam:
+            <input [(ngModel)]="match.scoreTeam1" placeholder="scoreFirstTeam"/>
+          </label>
+          <label>scoreSecondTeam:
+            <input [(ngModel)]="match.scoreTeam2" placeholder="scoreSecondTeam"/>
+          </label>
+          <label>date:
+            <input [(ngModel)]="match.date" placeholder="date"/>
+          </label>
         </div>
         <div *ngIf="group">
           <span class="card-title center"> Группа </span>
-            <label>id:
-              <input [(ngModel)]="group.id" placeholder="id"/>
-            </label>
-            <label>Name:
-              <input [(ngModel)]="group.name" placeholder="name"/>
-            </label>
+          <label>id:
+            <input [(ngModel)]="group.id" placeholder="id"/>
+          </label>
+          <label>Name:
+            <input [(ngModel)]="group.name" placeholder="name"/>
+          </label>
         </div>
         <div *ngIf="team">
           <span class="card-title center"> Команда </span>
@@ -49,15 +49,10 @@
         </div>
       </div>
       <div class="card-action">
-        <div *ngIf="match">
-          <a class="waves-effect waves-light btn" (click)="updateMatch()">Сохранить матч</a>
-        </div>
-        <div *ngIf="group">
-          <a class="waves-effect waves-light btn" (click)="updateGroup()">Сохранить группу</a>
-        </div>
-        <div *ngIf="team">
-          <a class="waves-effect waves-light btn" (click)="updateTeam()">Сохранить команду</a>
-        </div>
+        <a class="waves-effect waves-light btn" (click)="goBack()">Назад</a>
+        <a *ngIf="match" class="waves-effect waves-light btn right" (click)="updateMatch()">Сохранить матч</a>
+        <a *ngIf="group" class="waves-effect waves-light btn right" (click)="updateGroup()">Сохранить группу</a>
+        <a *ngIf="team" class="waves-effect waves-light btn right" (click)="updateTeam()">Сохранить команду</a>
       </div>
     </div>
   </div>

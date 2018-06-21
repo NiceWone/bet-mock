@@ -1,4 +1,4 @@
-import {Component, Input, OnInit} from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {Location} from '@angular/common';
 import {ActivatedRoute} from '@angular/router';
 import {MatchService} from '../services/match.service';
@@ -15,9 +15,9 @@ import {TeamService} from '../services/team.service';
 })
 export class EditComponent implements OnInit {
 
-  @Input() match: Match;
-  @Input() group: Group;
-  @Input() team: Team;
+  match: Match;
+  group: Group;
+  team: Team;
 
   constructor(
     private route: ActivatedRoute,
@@ -29,10 +29,10 @@ export class EditComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.getMatch();
+    this.getContent();
   }
 
-  private getMatch() {
+  private getContent() {
     const path = this.route.snapshot.url[1].path;
     const id = +this.route.snapshot.paramMap.get('id');
     if (path === 'match') {
@@ -43,10 +43,7 @@ export class EditComponent implements OnInit {
         .subscribe(group => this.group = group);
     } else {
       this.teamService.getTeam(id)
-        .subscribe(team => {
-          this.team = team;
-          console.log(team);
-        });
+        .subscribe(team => this.team = team);
     }
   }
 

@@ -1,10 +1,26 @@
 <div class="container">
-  <div *ngIf="matches">
-    <div class="collection">
-      <a class="collection-item" *ngFor="let match of matches" routerLink="/match/{{match.id}}">
+  <div class="collection">
+    <div *ngIf="matches">
+      <a class="collection-item" *ngFor="let match of matches" routerLink="/edit/match/{{match.id}}">
         <span class="left">{{match.date | date:"h:mm:ss dd.MM.yy"}}</span>
         <span class="right">{{match.scoreTeam1 + ' - ' + match.scoreTeam2}}</span>
         <div class="center-align">{{match.team1.name + ' - ' + match.team2.name}}</div>
+      </a>
+    </div>
+    <div *ngIf="groups">
+      <a class="collection-item" *ngFor="let group of groups" routerLink="/edit/group/{{group.id}}">
+        <div class="left">
+          {{group.name}}
+        </div>
+        <div class="center">
+          <span *ngFor="let team of group.teams">{{team.name}} </span>
+        </div>
+      </a>
+    </div>
+    <div *ngIf="teams">
+      <a class="collection-item" *ngFor="let team of teams" routerLink="/edit/team/{{team.id}}">
+        <span class="left">{{team.id}}</span>
+        <div class="center-align">{{team.name}}</div>
       </a>
     </div>
   </div>

@@ -18,20 +18,12 @@ export class TeamService {
   constructor(private http: HttpClient) {
   }
 
-  /**
-   * Handle Http operation that failed.
-   * Let the app continue.
-   * @param operation - name of the operation that failed
-   * @param result - optional value to return as the observable result
-   */
-  private handleError<T>(operation = 'operation', result?: T) {
-    return (error: any): Observable<T> => {
-
-      console.error(error); // log to console instead
-      console.log(`${operation} failed: ${error.message}`);
-
-      return of(result as T);
-    };
+  getTeams(): Observable<Team[]> {
+    return this.http.get<Team[]>(this.teamUrl)
+      .pipe(
+        tap(() => console.log(`fetched teams`)),
+        catchError(this.handleError('getTeams', []))
+      );
   }
 
   /** GET group by id. Will 404 if id not found */
@@ -48,5 +40,21 @@ export class TeamService {
       tap(() => console.log(`updated team id=${team.id}`)),
       catchError(this.handleError<any>('updateTeam'))
     );
+  }
+
+  /**
+   * Handle Http operation that failed.
+   * Let the app continue.
+   * @param operation - name of the operation that failed
+   * @param result - optional value to return as the observable result
+   */
+  private handleError<T>(operation = 'operation', result?: T) {
+    return (error: any): Observable<T> => {
+
+      console.error(error); // log to console instead
+      console.log(`${operation} failed: ${error.message}`);
+
+      return of(result as T);
+    };
   }
 }
