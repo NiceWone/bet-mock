@@ -49,14 +49,13 @@
           </div>
           <div *ngFor="let team of group.teams; let i = index;">
             <label>Name:
-              <!--<mat-form-field>-->
-                <!--<mat-select placeholder="Favorite food">-->
-                  <!--<mat-option *ngFor="let food of foods" [value]="food.value">-->
-                    <!--{{ food.viewValue }}-->
-                  <!--</mat-option>-->
-                <!--</mat-select>-->
-              <!--</mat-form-field>-->
-              <mat-card>Simple card</mat-card>
+              <mat-form-field>
+                <mat-select placeholder="Favorite food">
+                  <mat-option *ngFor="let food of foods" [value]="food.value">
+                    {{ food.viewValue }}
+                  </mat-option>
+                </mat-select>
+              </mat-form-field>
             </label>
           </div>
           <div class="pdg-but">
