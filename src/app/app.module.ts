@@ -11,6 +11,7 @@ import {PlayOffComponent} from './play-off/play-off.component';
 import {EditComponent} from './edit/edit.component';
 import {ListComponent} from './list/list.component';
 import {registerLocaleData} from '@angular/common';
+import {MatCardModule} from '@angular/material/card';
 import localeRu from '@angular/common/locales/ru';
 import {LOCALE_ID, NgModule} from '@angular/core';
 
@@ -32,6 +33,7 @@ registerLocaleData(localeRu, 'ru');
     FormsModule,
     AppRoutingModule,
     HttpClientModule,
+    MatCardModule,
   ],
   providers: [{provide: LOCALE_ID, useValue: 'ru'}],
   bootstrap: [AppComponent]
