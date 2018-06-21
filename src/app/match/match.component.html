@@ -3,7 +3,13 @@
     <div class="row">
       <div class="card large blue-grey darken-1">
         <div class="card-content white-text">
-          <span class="card-title center">{{match.team1.name + ' - ' + match.team2.name}}</span>
+          <span class="card-title center">
+          {{
+          (match.team1 === null ? 'TBD' : match.team1.name)
+          + ' - ' +
+          (match.team2 === null ? 'TBD' : match.team2.name)
+          }}
+          </span>
           <p class="center">
             {{match.scoreTeam1 + ' ---- ' + match.scoreTeam2}}
           </p>
