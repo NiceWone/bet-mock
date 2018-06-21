@@ -48,11 +48,12 @@
             </label>
           </div>
           <div *ngFor="let team of group.teams; let i = index;">
-            <label>Name:
+            <label>Team {{i}}:
               <mat-form-field>
-                <mat-select placeholder="Favorite food">
-                  <mat-option *ngFor="let food of foods" [value]="food.value">
-                    {{ food.viewValue }}
+                <mat-select [(value)]="group.teams[i]" placeholder="{{group.teams[i]?group.teams[i].name:null}}">
+                  <mat-option [value]=null>None</mat-option>
+                  <mat-option *ngFor="let team of teams" [value]="team">
+                    {{team.name === null ? "null" : team.name}}
                   </mat-option>
                 </mat-select>
               </mat-form-field>

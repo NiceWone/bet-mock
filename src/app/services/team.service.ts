@@ -26,6 +26,14 @@ export class TeamService {
       );
   }
 
+  getTeamsWithFreeGroup(): Observable<Team[]> {
+    return this.http.get<Team[]>(this.teamUrl + `/freeTeams`)
+      .pipe(
+        tap(() => console.log(`fetched teams`)),
+        catchError(this.handleError('getTeams', []))
+      );
+  }
+
   /** GET team by id. Will 404 if id not found */
   getTeam(id: number): Observable<Team> {
     return this.http.get<Team>(`${this.teamUrl}/${id}`)
