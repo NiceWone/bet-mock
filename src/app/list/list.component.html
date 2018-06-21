@@ -1,0 +1,11 @@
+<div class="container">
+  <div *ngIf="matches">
+    <div class="collection">
+      <a class="collection-item" *ngFor="let match of matches" routerLink="/match/{{match.id}}">
+        <span class="left">{{match.date | date:"h:mm:ss dd.MM.yy"}}</span>
+        <span class="right">{{match.scoreTeam1 + ' - ' + match.scoreTeam2}}</span>
+        <div class="center-align">{{match.team1.name + ' - ' + match.team2.name}}</div>
+      </a>
+    </div>
+  </div>
+</div>

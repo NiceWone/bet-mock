@@ -1,5 +1,5 @@
 import {BrowserModule} from '@angular/platform-browser';
-import {NgModule} from '@angular/core';
+import {LOCALE_ID, NgModule} from '@angular/core';
 
 import {AppComponent} from './app.component';
 import {GroupComponent} from './group/group.component';
@@ -14,6 +14,12 @@ import {FormsModule} from '@angular/forms'; // <-- NgModel lives here
 import {HttpClientModule} from '@angular/common/http';
 import {PlayOffComponent} from './play-off/play-off.component';
 import { EditComponent } from './edit/edit.component';
+import { ListComponent } from './list/list.component';
+import {registerLocaleData} from '@angular/common';
+import localeRu from '@angular/common/locales/ru';
+
+// the second parameter 'fr' is optional
+registerLocaleData(localeRu, 'ru');
 
 @NgModule({
   declarations: [
@@ -23,7 +29,8 @@ import { EditComponent } from './edit/edit.component';
     DashboardComponent,
     MatchComponent,
     PlayOffComponent,
-    EditComponent
+    EditComponent,
+    ListComponent
   ],
   imports: [
     BrowserModule,
@@ -32,7 +39,7 @@ import { EditComponent } from './edit/edit.component';
     HttpClientModule,
     // HttpClientInMemoryWebApiModule.forRoot(InMemoryDataService, {dataEncapsulation: false, delay: 1500})
   ],
-  providers: [],
+  providers: [{ provide: LOCALE_ID, useValue: 'ru' } ],
   bootstrap: [AppComponent]
 })
 export class AppModule {

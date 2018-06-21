@@ -2,7 +2,6 @@ import {Injectable} from '@angular/core';
 import {HttpClient, HttpHeaders} from '@angular/common/http';
 import {catchError, tap} from 'rxjs/operators';
 import {Observable, of} from 'rxjs';
-import {Group} from '../model/group';
 import {Team} from '../model/team';
 
 const httpOptions = {
@@ -37,10 +36,10 @@ export class TeamService {
 
   /** GET group by id. Will 404 if id not found */
   getTeam(id: number): Observable<Team> {
-    return this.http.get<Group>(`${this.teamUrl}/${id}`)
+    return this.http.get<Team>(`${this.teamUrl}/${id}`)
       .pipe(
         tap(() => console.log(`fetched team id=${id}`)),
-        catchError(this.handleError<Group>(`getTeam id=${id}`)));
+        catchError(this.handleError<Team>(`getTeam id=${id}`)));
   }
 
   /** PUT: update the hero on the server */

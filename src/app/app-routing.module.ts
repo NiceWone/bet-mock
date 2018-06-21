@@ -6,6 +6,7 @@ import {MatchComponent} from './match/match.component';
 import {GroupDetailsComponent} from './group-details/group-details.component';
 import {PlayOffComponent} from './play-off/play-off.component';
 import {EditComponent} from './edit/edit.component';
+import {ListComponent} from './list/list.component';
 
 const routes: Routes = [
   {path: '', redirectTo: '/', pathMatch: 'full'},
@@ -17,6 +18,9 @@ const routes: Routes = [
   {path: 'edit/match/:id', component: EditComponent},
   {path: 'edit/group/:id', component: EditComponent},
   {path: 'edit/team/:id', component: EditComponent},
+  {path: 'matches', component: ListComponent},
+  {path: 'groups', component: ListComponent},
+  {path: 'teams', component: ListComponent},
 ];
 
 @NgModule({
