@@ -13,8 +13,8 @@ import {FormsModule} from '@angular/forms'; // <-- NgModel lives here
 // import {InMemoryDataService} from './services/in-memory-data.service';
 import {HttpClientModule} from '@angular/common/http';
 import {PlayOffComponent} from './play-off/play-off.component';
-import { EditComponent } from './edit/edit.component';
-import { ListComponent } from './list/list.component';
+import {EditComponent} from './edit/edit.component';
+import {ListComponent} from './list/list.component';
 import {registerLocaleData} from '@angular/common';
 import localeRu from '@angular/common/locales/ru';
 
@@ -39,7 +39,7 @@ registerLocaleData(localeRu, 'ru');
     HttpClientModule,
     // HttpClientInMemoryWebApiModule.forRoot(InMemoryDataService, {dataEncapsulation: false, delay: 1500})
   ],
-  providers: [{ provide: LOCALE_ID, useValue: 'ru' } ],
+  providers: [{provide: LOCALE_ID, useValue: 'ru'}],
   bootstrap: [AppComponent]
 })
 export class AppModule {

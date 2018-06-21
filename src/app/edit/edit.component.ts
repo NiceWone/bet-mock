@@ -18,18 +18,26 @@ export class EditComponent implements OnInit {
   match: Match;
   group: Group;
   team: Team;
+  teams: Team[];
+
 
   constructor(
     private route: ActivatedRoute,
     private matchService: MatchService,
     private groupService: GroupService,
     private teamService: TeamService,
-    private location: Location
+    private location: Location,
   ) {
+  }
+
+  addTeamTemplate() {
+    this.group.teams.push(new Team());
+    console.log(this.group);
   }
 
   ngOnInit() {
     this.getContent();
+    this.getTeams();
   }
 
   private getContent() {
@@ -77,6 +85,11 @@ export class EditComponent implements OnInit {
         break;
       }
     }
+  }
+
+  private getTeams() {
+    this.teamService.getTeams()
+      .subscribe(teams => this.teams = teams);
   }
 
   goBack(): void {

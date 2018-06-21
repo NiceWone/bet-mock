@@ -42,9 +42,19 @@
               <input [(ngModel)]="group.id" placeholder="group.id"/>
             </label>
           </div>
-          <label>Name:
-            <input [(ngModel)]="group.name" placeholder="name"/>
-          </label>
+          <div>
+            <label>Name:
+              <input [(ngModel)]="group.name" placeholder="name"/>
+            </label>
+          </div>
+          <div *ngFor="let team of group.teams; let i = index;">
+            <label>Name:
+
+            </label>
+          </div>
+          <div class="pdg-but">
+            <a class="waves-effect waves-light btn right" (click)="addTeamTemplate()">Добавить команду</a>
+          </div>
         </div>
         <div *ngIf="team">
           <span class="card-title center"> Команда </span>
