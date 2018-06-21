@@ -1,39 +1,30 @@
 <div class="container">
-  <div class="collection">
-    <div *ngIf="matches">
-      <a class="collection-item" *ngFor="let match of matches" routerLink="/edit/match/{{match.id}}">
-        <span class="left">{{match.date | date:"h:mm:ss dd.MM.yy"}}</span>
-        <span class="right">
-          {{
-          (match.scoreTeam1 === null ? 'TBD' : match.scoreTeam1)
-          + ' - ' +
-          (match.scoreTeam2 === null ? 'TBD' : match.scoreTeam2)
-          }}
-        </span>
-        <div class="center-align">
-          {{
-          (match.team1 === null ? 'TBD' : match.team1.name)
-          + ' - ' +
-          (match.team2 === null ? 'TBD' : match.team2.name)
-          }}
-        </div>
-      </a>
-    </div>
-    <div *ngIf="groups">
-      <a class="collection-item" *ngFor="let group of groups" routerLink="/edit/group/{{group.id}}">
-        <div class="left">
-          {{group.name}}
-        </div>
-        <div class="center">
-          <span *ngFor="let team of group.teams">{{team.name}}</span>
-        </div>
-      </a>
-    </div>
-    <div *ngIf="teams">
-      <a class="collection-item" *ngFor="let team of teams" routerLink="/edit/team/{{team.id}}">
-        <span class="left">{{team.id}}</span>
-        <div class="center-align">{{team.name}}</div>
-      </a>
-    </div>
+  <div class="row add-btn">
+    <a *ngIf="matches" class="waves-effect waves-light btn" routerLink="/edit/match/0">Добавить</a>
+    <a *ngIf="groups" class="waves-effect waves-light btn" routerLink="/edit/group/0">Добавить</a>
+    <a *ngIf="teams" class="waves-effect waves-light btn" routerLink="/edit/team/0">Добавить</a>
   </div>
+  <ul class="collection with-header">
+    <li *ngIf="matches" class="collection-header"><h4>Matches</h4></li>
+    <li *ngIf="groups" class="collection-header"><h4>Groups</h4></li>
+    <li *ngIf="teams" class="collection-header"><h4>Teams</h4></li>
+    <li>
+      <a *ngFor="let match of matches" class="collection-item ci-center" routerLink="/edit/match/{{match.id}}">
+        {{
+        (match.team1 === null ? 'TBD' : match.team1.name)
+        + ' - ' +
+        (match.team2 === null ? 'TBD' : match.team2.name)
+        }}
+        <div class="secondary-content">{{match.date | date:"h:mm:ss dd.MM.yy"}}</div>
+      </a>
+      <a *ngFor="let group of groups" class="collection-item ci-center" routerLink="/edit/group/{{group.id}}">
+        {{group.name}}
+        <div class="secondary-content">{{group.id}}</div>
+      </a>
+      <a *ngFor="let team of teams" class="collection-item ci-center" routerLink="/edit/team/{{team.id}}">
+        {{team.name}}
+        <div class="secondary-content">{{team.id}}</div>
+      </a>
+    </li>
+  </ul>
 </div>

@@ -26,7 +26,7 @@ export class TeamService {
       );
   }
 
-  /** GET group by id. Will 404 if id not found */
+  /** GET team by id. Will 404 if id not found */
   getTeam(id: number): Observable<Team> {
     return this.http.get<Team>(`${this.teamUrl}/${id}`)
       .pipe(
@@ -34,11 +34,19 @@ export class TeamService {
         catchError(this.handleError<Team>(`getTeam id=${id}`)));
   }
 
-  /** PUT: update the hero on the server */
+  /** PUT: update the team on the server */
   update(team: Team): Observable<any> {
     return this.http.put(`${this.teamUrl}/${team.id}`, team, httpOptions).pipe(
       tap(() => console.log(`updated team id=${team.id}`)),
       catchError(this.handleError<any>('updateTeam'))
+    );
+  }
+
+  /** PUT: delete the team on the server */
+  deleteTeam(id: number): Observable<any> {
+    return this.http.delete(`${this.teamUrl}/${id}`, httpOptions).pipe(
+      tap(() => console.log(`delete team id=${id}`)),
+      catchError(this.handleError<any>('deleteTeam'))
     );
   }
 

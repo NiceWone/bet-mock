@@ -35,15 +35,47 @@ export class EditComponent implements OnInit {
   private getContent() {
     const path = this.route.snapshot.url[1].path;
     const id = +this.route.snapshot.paramMap.get('id');
-    if (path === 'match') {
-      this.matchService.getMatch(id)
-        .subscribe(match => this.match = match);
-    } else if (path === 'group') {
-      this.groupService.getGroup(id)
-        .subscribe(group => this.group = group);
-    } else {
-      this.teamService.getTeam(id)
-        .subscribe(team => this.team = team);
+    if (id === 0) {
+      switch (path) {
+        case 'match': {
+          this.match = new Match();
+          break;
+        }
+        case 'group': {
+          this.group = new Group();
+          break;
+        }
+        case 'team': {
+          this.team = new Team();
+          break;
+        }
+        default: {
+          console.log('Invalid choice');
+          break;
+        }
+      }
+      return;
+    }
+    switch (path) {
+      case 'match': {
+        this.matchService.getMatch(id)
+          .subscribe(match => this.match = match);
+        break;
+      }
+      case 'group': {
+        this.groupService.getGroup(id)
+          .subscribe(group => this.group = group);
+        break;
+      }
+      case 'team': {
+        this.teamService.getTeam(id)
+          .subscribe(team => this.team = team);
+        break;
+      }
+      default: {
+        console.log('Invalid choice');
+        break;
+      }
     }
   }
 
@@ -56,13 +88,28 @@ export class EditComponent implements OnInit {
       .subscribe(() => this.goBack());
   }
 
-  updateGroup() {
+  deleteMatch(id: number): void {
+    this.matchService.deleteMatch(id)
+      .subscribe(() => this.goBack());
+  }
+
+  updateGroup(): void {
     this.groupService.update(this.group)
       .subscribe(() => this.goBack());
   }
 
-  updateTeam() {
+  deleteGroup(id: number): void {
+    this.groupService.deleteGroup(id)
+      .subscribe(() => this.goBack());
+  }
+
+  updateTeam(): void {
     this.teamService.update(this.team)
+      .subscribe(() => this.goBack());
+  }
+
+  deleteTeam(id: number): void {
+    this.teamService.deleteTeam(id)
       .subscribe(() => this.goBack());
   }
 }

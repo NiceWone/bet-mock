@@ -35,6 +35,22 @@ export class GroupService {
         catchError(this.handleError<Group>(`getGroup id=${id}`)));
   }
 
+  /** PUT: update the hero on the server */
+  update(group: Group): Observable<any> {
+    return this.http.put(`${this.groupsUrl}/${group.id}`, group, httpOptions).pipe(
+      tap(() => console.log(`updated group id=${group.id}`)),
+      catchError(this.handleError<any>('updateGroup'))
+    );
+  }
+
+  /** Delete: delete the team on the server */
+  deleteGroup(id: number): Observable<any> {
+    return this.http.delete(`${this.groupsUrl}/${id}`, httpOptions).pipe(
+      tap(() => console.log(`delete group id=${id}`)),
+      catchError(this.handleError<any>('deleteGroup'))
+    );
+  }
+
   /**
    * Handle Http operation that failed.
    * Let the app continue.
@@ -49,13 +65,5 @@ export class GroupService {
 
       return of(result as T);
     };
-  }
-
-  /** PUT: update the hero on the server */
-  update(group: Group): Observable<any> {
-    return this.http.put(`${this.groupsUrl}/${group.id}`, group, httpOptions).pipe(
-      tap(() => console.log(`updated group id=${group.id}`)),
-      catchError(this.handleError<any>('updateGroup'))
-    );
   }
 }

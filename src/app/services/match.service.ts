@@ -53,6 +53,14 @@ export class MatchService {
     );
   }
 
+  /** Delete: delete the team on the server */
+  deleteMatch(id: number): Observable<any> {
+    return this.http.delete(`${this.matchesUrl}/${id}`, httpOptions).pipe(
+      tap(() => console.log(`delete match id=${id}`)),
+      catchError(this.handleError<any>('deleteMatch'))
+    );
+  }
+
   /**
    * Handle Http operation that failed.
    * Let the app continue.
