@@ -19,7 +19,11 @@ export class EditComponent implements OnInit {
   group: Group;
   team: Team;
   teams: Team[];
-
+  foods = [
+    {value: 'steak-0', viewValue: 'Steak'},
+    {value: 'pizza-1', viewValue: 'Pizza'},
+    {value: 'tacos-2', viewValue: 'Tacos'}
+  ];
 
   constructor(
     private route: ActivatedRoute,
