@@ -15,7 +15,18 @@
             </label>
           </div>
           <ng-template #other_content1>
-            <!--other content here...-->
+            <div>
+              <label>Team1 id:
+                <mat-form-field>
+                  <mat-select [(value)]="match.team1">
+                    <mat-option [value]=null>None</mat-option>
+                    <mat-option *ngFor="let team of teams" [value]="team">
+                      {{team.name === null ? "null" : team.name}}
+                    </mat-option>
+                  </mat-select>
+                </mat-form-field>
+              </label>
+            </div>
           </ng-template>
           <div *ngIf="match.team2; else other_content2">
             <label>Team2 id:
@@ -23,7 +34,18 @@
             </label>
           </div>
           <ng-template #other_content2>
-            <!--other content here...-->
+            <div>
+              <label>Team2 id:
+                <mat-form-field>
+                  <mat-select [(value)]="match.team2">
+                    <mat-option [value]=null>None</mat-option>
+                    <mat-option *ngFor="let team of teams" [value]="team">
+                      {{team.name === null ? "null" : team.name}}
+                    </mat-option>
+                  </mat-select>
+                </mat-form-field>
+              </label>
+            </div>
           </ng-template>
           <label>scoreFirstTeam:
             <input [(ngModel)]="match.scoreTeam1" placeholder="scoreFirstTeam"/>
@@ -47,10 +69,10 @@
               <input [(ngModel)]="group.name" placeholder="name"/>
             </label>
           </div>
-          <div *ngFor="let team of group.teams; let i = index;">
+          <div *ngFor="let t of group.teams; let i = index;">
             <label>Team {{i}}:
               <mat-form-field>
-                <mat-select [(value)]="group.teams[i]" placeholder="{{group.teams[i]?group.teams[i].name:null}}">
+                <mat-select [(value)]="group.teams[i]">
                   <mat-option [value]=null>None</mat-option>
                   <mat-option *ngFor="let team of teams" [value]="team">
                     {{team.name === null ? "null" : team.name}}
