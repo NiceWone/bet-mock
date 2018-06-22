@@ -53,9 +53,11 @@
           <label>scoreSecondTeam:
             <input [(ngModel)]="match.scoreTeam2" placeholder="scoreSecondTeam"/>
           </label>
-          <label>date:
-            <input [(ngModel)]="match.date" placeholder="date"/>
-          </label>
+          <mat-form-field>
+            <input matInput [matDatepicker]="picker" placeholder="Choose a date" [(ngModel)]="match.date">
+            <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+            <mat-datepicker #picker></mat-datepicker>
+          </mat-form-field>
         </div>
         <div *ngIf="group">
           <span class="card-title center"> Группа </span>

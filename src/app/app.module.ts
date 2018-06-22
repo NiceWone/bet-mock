@@ -16,6 +16,7 @@ import localeRu from '@angular/common/locales/ru';
 import {LOCALE_ID, NgModule} from '@angular/core';
 import {MatSelectModule} from '@angular/material/select';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
+import {MatDatepickerModule, MatInputModule, MatNativeDateModule} from '@angular/material';
 
 registerLocaleData(localeRu, 'ru');
 
@@ -38,6 +39,9 @@ registerLocaleData(localeRu, 'ru');
     MatCardModule,
     MatSelectModule,
     BrowserAnimationsModule,
+    MatDatepickerModule,
+    MatNativeDateModule,
+    MatInputModule
   ],
   providers: [{provide: LOCALE_ID, useValue: 'ru'}],
   bootstrap: [AppComponent]
