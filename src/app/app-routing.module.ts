@@ -7,9 +7,11 @@ import {GroupDetailsComponent} from './group-details/group-details.component';
 import {PlayOffComponent} from './play-off/play-off.component';
 import {EditComponent} from './edit/edit.component';
 import {ListComponent} from './list/list.component';
+import {LoginComponent} from './login/login.component';
 
 const routes: Routes = [
   {path: '', redirectTo: '/', pathMatch: 'full'},
+  { path: 'login', component: LoginComponent },
   {path: 'dashboard', component: DashboardComponent},
   {path: 'match/:id', component: MatchComponent},
   {path: 'group', component: GroupComponent},

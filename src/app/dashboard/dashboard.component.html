@@ -3,12 +3,14 @@
   <a *ngFor="let match of actualMatches" class="col-1-4"
      routerLink="/match/{{match.id}}">
     <div class="module">
-      {{
-      match.date.toLocaleString() + ' ' +
-      (match.team1 === null ? 'TBD' : match.team1.name)
-      + ' - ' +
-      (match.team2 === null ? 'TBD' : match.team2.name)
-      }}
+      <span>
+        {{match.date | date:"h:mm:ss dd.MM.yy"}}
+      </span>
+      <span>
+        {{
+         (match.team1 === null ? 'TBD' : match.team1.name) + ' - ' + (match.team2 === null ? 'TBD' : match.team2.name)
+        }}
+      </span>
     </div>
   </a>
 </div>
@@ -18,12 +20,12 @@
   <a *ngFor="let match of futureMatches" class="col-1-4"
      routerLink="/match/{{match.id}}">
     <div class="module">
-      {{
-      match.date.toLocaleString() + ' ' +
-      (match.team1 === null ? 'TBD' : match.team1.name)
-      + ' - ' +
-      (match.team2 === null ? 'TBD' : match.team2.name)
-      }}
+      <span>{{match.date | date:"h:mm:ss dd.MM.yy"}}</span>
+      <span>
+        {{
+         (match.team1 === null ? 'TBD' : match.team1.name) + ' - ' + (match.team2 === null ? 'TBD' : match.team2.name)
+        }}
+      </span>
     </div>
   </a>
 </div>
@@ -33,11 +35,12 @@
   <a *ngFor="let match of passedMatches" class="col-1-4"
      routerLink="/match/{{match.id}}">
     <div class="module">
-      {{
-      (match.team1 === null ? 'TBD' : match.team1.name)
-      + ' ' + match.scoreTeam1 + ' - ' + match.scoreTeam2 + ' ' +
-      (match.team2 === null ? 'TBD' : match.team2.name)
-      }}
+      <span>{{match.date | date:"h:mm:ss dd.MM.yy"}}</span>
+      <span>
+        {{
+         (match.team1 === null ? 'TBD' : match.team1.name) + ' - ' + (match.team2 === null ? 'TBD' : match.team2.name)
+        }}
+      </span>
     </div>
   </a>
 </div>
