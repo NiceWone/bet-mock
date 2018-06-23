@@ -27,7 +27,7 @@ export class GroupComponent implements OnInit {
     this.groupService.getGroups()
       .subscribe(groups => {
         this.groups = groups;
-        this.calculateAllGroups();
+        // this.calculateAllGroups();
       });
   }
 

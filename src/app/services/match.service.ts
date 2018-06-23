@@ -28,10 +28,8 @@ export class MatchService {
 
   /** GET matches by id. Will 404 if id not found */
   getMatchesByGroup(id: number): Observable<Match[]> {
-    return this.http.get<Match[]>(`${this.matchesUrl}`)
+    return this.http.get<Match[]>(`${this.matchesUrl}?group_id=${id}`)
       .pipe(
-        map(matches =>
-          matches.filter(x => (x.id >= id * 6 && x.id < id * 6 + 6))),
         tap(() => console.log(`fetched matches for group  id=${id}`)),
         catchError(this.handleError('getMatches', []))
       );

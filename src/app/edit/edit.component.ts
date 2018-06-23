@@ -30,7 +30,7 @@ export class EditComponent implements OnInit {
   }
 
   addTeamTemplate() {
-    if (this.group.teams !== undefined) {
+    if (this.group.teams !== undefined && this.group.teams[this.group.teams.length - 1] !== null) {
       this.group.teams.push(null);
     }
   }

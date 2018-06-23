@@ -27,6 +27,7 @@ export class GroupDetailsComponent implements OnInit {
   ngOnInit() {
     this.getGroup();
     this.getGroupMatches();
+    // TODO  Calcute group result
   }
 
   private getGroup() {
@@ -34,11 +35,11 @@ export class GroupDetailsComponent implements OnInit {
     this.groupService.getGroup(id)
       .subscribe(group => {
         this.group = group;
-        this.matchService.getMatchesByGroup(group.id)
-          .subscribe(matches => {
-            matches.forEach(match => this.calc(match, group));
-            this.sortTeams(group);
-          });
+        // this.matchService.getMatchesByGroup(group.id)
+        //   .subscribe(matches => {
+        //     matches.forEach(match => this.calc(match, group));
+        //     this.sortTeams(group);
+        //   });
       });
   }
 
