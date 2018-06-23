@@ -15,6 +15,8 @@ export class GroupDetailsComponent implements OnInit {
 
   group: Group;
   matches: Match[] = [];
+  groupLoadFlag = false;
+  matchesLoadFlag = false;
 
   constructor(
     private route: ActivatedRoute,
@@ -27,7 +29,6 @@ export class GroupDetailsComponent implements OnInit {
   ngOnInit() {
     this.getGroup();
     this.getGroupMatches();
-    // TODO  Calcute group result
   }
 
   private getGroup() {
@@ -35,11 +36,8 @@ export class GroupDetailsComponent implements OnInit {
     this.groupService.getGroup(id)
       .subscribe(group => {
         this.group = group;
-        // this.matchService.getMatchesByGroup(group.id)
-        //   .subscribe(matches => {
-        //     matches.forEach(match => this.calc(match, group));
-        //     this.sortTeams(group);
-        //   });
+        this.groupLoadFlag = true;
+        this.tryCalc();
       });
   }
 
@@ -50,7 +48,19 @@ export class GroupDetailsComponent implements OnInit {
   private getGroupMatches() {
     const id = +this.route.snapshot.paramMap.get('id');
     this.matchService.getMatchesByGroup(id)
-      .subscribe(m => this.matches = m);
+      .subscribe(m => {
+          this.matches = m;
+          this.matchesLoadFlag = true;
+          this.tryCalc();
+        }
+      );
+  }
+
+  private tryCalc() {
+    if (this.groupLoadFlag === true && this.matchesLoadFlag === true) {
+      this.matches.forEach(m => this.calc(m, this.group));
+      this.sortTeams(this.group);
+    }
   }
 
   private calc(match: Match, gr: Group): void {
@@ -59,6 +69,14 @@ export class GroupDetailsComponent implements OnInit {
     const team2 = gr.teams.find(x => x.id === match.team2.id);
 
     if (match.scoreTeam1 != null && match.scoreTeam2 != null) {
+      if (isNaN(team1.matches)) {
+        team1.matches = 0;
+        team1.points = 0;
+      }
+      if (isNaN(team2.matches)) {
+        team2.matches = 0;
+        team2.points = 0;
+      }
       team1.matches++;
       team2.matches++;
 
