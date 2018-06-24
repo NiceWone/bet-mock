@@ -1,8 +1,7 @@
-<div class="container">
-  <div *ngIf="match">
-    <div class="row">
-      <div class="card large blue-grey darken-1">
-        <div class="card-content white-text">
+<div *ngIf="match">
+  <div class="row">
+    <div class="card large blue-grey darken-1">
+      <div class="card-content white-text">
           <span class="card-title center">
           {{
           (match.team1 === null ? 'TBD' : match.team1.name)
@@ -10,26 +9,25 @@
           (match.team2 === null ? 'TBD' : match.team2.name)
           }}
           </span>
-          <p class="center">
-            {{match.scoreTeam1 + ' ---- ' + match.scoreTeam2}}
-          </p>
+        <p class="center">
+          {{match.scoreTeam1 + ' ---- ' + match.scoreTeam2}}
+        </p>
 
-          <span class="left">
+        <span class="left">
             {{match.date | date:"h:mm:ss dd.MM.yy"}}
           </span>
 
-          <span class="right">
+        <span class="right">
             {{match.date | date:"h:mm:ss dd.MM.yy"}}
           </span>
 
-        </div>
-        <div class="card-action center-align">
-          <a class="waves-effect waves-light btn left" (click)="goBack()">Назад</a>
-          <a class="waves-effect waves-light btn right" (click)="showBets()">Показать голоса других</a>
-          <a class="waves-effect waves-light btn-small" routerLink="/edit/match/{{match.id}}">Подробнее</a>
-        </div>
+      </div>
+      <div class="card-action center-align">
+        <a class="waves-effect waves-light btn left" (click)="goBack()">Назад</a>
+        <a class="waves-effect waves-light btn right" (click)="showBets()">Показать голоса других</a>
+        <a class="waves-effect waves-light btn-small" routerLink="/edit/match/{{match.id}}">Подробнее</a>
       </div>
     </div>
-
   </div>
+
 </div>

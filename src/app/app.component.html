@@ -1,8 +1,8 @@
 <nav>
   <div class="nav-wrapper">
-    <a href="/" class="brand-logo center">2018 FIFA World Cup Russia™</a>
+    <a class="brand-logo center">2018 FIFA World Cup Russia™</a>
     <ul id="nav-mobile" class="left hide-on-med-and-down">
-      <li><a routerLink="/dashboard">Главная</a></li>
+      <li><a routerLinkActive="active" routerLink="/dashboard">Главная</a></li>
       <li><a routerLink="/group">Группы</a></li>
       <li><a routerLink="/play-off">Плей-офф</a></li>
     </ul>
@@ -10,8 +10,11 @@
       <li><a routerLink="/matches">Матчи</a></li>
       <li><a routerLink="/groups">Группы</a></li>
       <li><a routerLink="/teams">Команды</a></li>
-      <li><a routerLink="/play-off">Юзер</a></li>
+      <li><a routerLink="/login">Login</a></li>
+      <li><a (click)="logout()">Logout</a></li>
     </ul>
   </div>
 </nav>
-<router-outlet></router-outlet>
+<div class="container">
+  <router-outlet></router-outlet>
+</div>

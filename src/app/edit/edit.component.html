@@ -1,80 +1,23 @@
-<div class="container">
-  <div class="row">
-    <div class="card blue-grey darken-1">
-      <div class="card-content white-text">
-        <div *ngIf="match">
-          <span class="card-title center"> Матч </span>
-          <div *ngIf="match.id;">
-            <label>id:
-              <input [(ngModel)]="match.id" placeholder="match.id"/>
-            </label>
-          </div>
-          <div *ngIf="match.team1; else other_content1">
-            <label>Team1 id:
-              <input [(ngModel)]="match.team1.id" placeholder="team1.id"/>
-            </label>
-          </div>
-          <ng-template #other_content1>
-            <div>
-              <label>Team1 id:
-                <mat-form-field>
-                  <mat-select [(value)]="match.team1">
-                    <mat-option [value]=null>None</mat-option>
-                    <mat-option *ngFor="let team of teams" [value]="team">
-                      {{team.name === null ? "null" : team.name}}
-                    </mat-option>
-                  </mat-select>
-                </mat-form-field>
-              </label>
-            </div>
-          </ng-template>
-          <div *ngIf="match.team2; else other_content2">
-            <label>Team2 id:
-              <input [(ngModel)]="match.team2.id" placeholder="team2.id"/>
-            </label>
-          </div>
-          <ng-template #other_content2>
-            <div>
-              <label>Team2 id:
-                <mat-form-field>
-                  <mat-select [(value)]="match.team2">
-                    <mat-option [value]=null>None</mat-option>
-                    <mat-option *ngFor="let team of teams" [value]="team">
-                      {{team.name === null ? "null" : team.name}}
-                    </mat-option>
-                  </mat-select>
-                </mat-form-field>
-              </label>
-            </div>
-          </ng-template>
-          <label>scoreFirstTeam:
-            <input [(ngModel)]="match.scoreTeam1" placeholder="scoreFirstTeam"/>
+<div class="row">
+  <div class="card blue-grey darken-1">
+    <div class="card-content white-text">
+      <div *ngIf="match">
+        <span class="card-title center"> Матч </span>
+        <div *ngIf="match.id;">
+          <label>id:
+            <input [(ngModel)]="match.id" placeholder="match.id"/>
           </label>
-          <label>scoreSecondTeam:
-            <input [(ngModel)]="match.scoreTeam2" placeholder="scoreSecondTeam"/>
-          </label>
-          <mat-form-field>
-            <input matInput [matDatepicker]="picker" placeholder="Choose a date" [(ngModel)]="match.date">
-            <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
-            <mat-datepicker #picker></mat-datepicker>
-          </mat-form-field>
         </div>
-        <div *ngIf="group">
-          <span class="card-title center"> Группа </span>
-          <div *ngIf="group.id;">
-            <label>id:
-              <input [(ngModel)]="group.id" placeholder="group.id"/>
-            </label>
-          </div>
+        <div *ngIf="match.team1; else other_content1">
+          <label>Team1 id:
+            <input [(ngModel)]="match.team1.id" placeholder="team1.id"/>
+          </label>
+        </div>
+        <ng-template #other_content1>
           <div>
-            <label>Name:
-              <input [(ngModel)]="group.name" placeholder="name"/>
-            </label>
-          </div>
-          <div *ngFor="let t of group.teams; let i = index;">
-            <label>Team {{i}}:
+            <label>Team1 id:
               <mat-form-field>
-                <mat-select [(value)]="group.teams[i]">
+                <mat-select [(value)]="match.team1">
                   <mat-option [value]=null>None</mat-option>
                   <mat-option *ngFor="let team of teams" [value]="team">
                     {{team.name === null ? "null" : team.name}}
@@ -83,31 +26,86 @@
               </mat-form-field>
             </label>
           </div>
-          <div class="pdg-but">
-            <a class="waves-effect waves-light btn right" (click)="addTeamTemplate()">Добавить команду</a>
-          </div>
-        </div>
-        <div *ngIf="team">
-          <span class="card-title center"> Команда </span>
-          <div *ngIf="team.id;">
-            <label>id:
-              <input [(ngModel)]="team.id" placeholder="team.id"/>
-            </label>
-          </div>
-          <label>name:
-            <input [(ngModel)]="team.name" placeholder="name"/>
+        </ng-template>
+        <div *ngIf="match.team2; else other_content2">
+          <label>Team2 id:
+            <input [(ngModel)]="match.team2.id" placeholder="team2.id"/>
           </label>
         </div>
+        <ng-template #other_content2>
+          <div>
+            <label>Team2 id:
+              <mat-form-field>
+                <mat-select [(value)]="match.team2">
+                  <mat-option [value]=null>None</mat-option>
+                  <mat-option *ngFor="let team of teams" [value]="team">
+                    {{team.name === null ? "null" : team.name}}
+                  </mat-option>
+                </mat-select>
+              </mat-form-field>
+            </label>
+          </div>
+        </ng-template>
+        <label>scoreFirstTeam:
+          <input [(ngModel)]="match.scoreTeam1" placeholder="scoreFirstTeam"/>
+        </label>
+        <label>scoreSecondTeam:
+          <input [(ngModel)]="match.scoreTeam2" placeholder="scoreSecondTeam"/>
+        </label>
+        <mat-form-field>
+          <input matInput [matDatepicker]="picker" placeholder="Choose a date" [(ngModel)]="match.date">
+          <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+          <mat-datepicker #picker></mat-datepicker>
+        </mat-form-field>
       </div>
-      <div class="card-action center-align">
-        <a class="waves-effect waves-light btn left" (click)="goBack()">Назад</a>
-        <a *ngIf="match" class="waves-effect waves-light btn right" (click)="updateMatch()">Сохранить матч</a>
-        <a *ngIf="group" class="waves-effect waves-light btn right" (click)="updateGroup()">Сохранить группу</a>
-        <a *ngIf="team" class="waves-effect waves-light btn right" (click)="updateTeam()">Сохранить команду</a>
-        <a *ngIf="match" class="waves-effect waves-light btn" (click)="deleteMatch(match.id)">Удалить</a>
-        <a *ngIf="group" class="waves-effect waves-light btn" (click)="deleteGroup(group.id)">Удалить</a>
-        <a *ngIf="team" class="waves-effect waves-light btn" (click)="deleteTeam(team.id)">Удалить</a>
+      <div *ngIf="group">
+        <span class="card-title center"> Группа </span>
+        <div *ngIf="group.id;">
+          <label>id:
+            <input [(ngModel)]="group.id" placeholder="group.id"/>
+          </label>
+        </div>
+        <div>
+          <label>Name:
+            <input [(ngModel)]="group.name" placeholder="name"/>
+          </label>
+        </div>
+        <div *ngFor="let t of group.teams; let i = index;">
+          <label>Team {{i}}:
+            <mat-form-field>
+              <mat-select [(value)]="group.teams[i]">
+                <mat-option [value]=null>None</mat-option>
+                <mat-option *ngFor="let team of teams" [value]="team">
+                  {{team.name === null ? "null" : team.name}}
+                </mat-option>
+              </mat-select>
+            </mat-form-field>
+          </label>
+        </div>
+        <div class="pdg-but">
+          <a class="waves-effect waves-light btn right" (click)="addTeamTemplate()">Добавить команду</a>
+        </div>
       </div>
+      <div *ngIf="team">
+        <span class="card-title center"> Команда </span>
+        <div *ngIf="team.id;">
+          <label>id:
+            <input [(ngModel)]="team.id" placeholder="team.id"/>
+          </label>
+        </div>
+        <label>name:
+          <input [(ngModel)]="team.name" placeholder="name"/>
+        </label>
+      </div>
+    </div>
+    <div class="card-action center-align">
+      <a class="waves-effect waves-light btn left" (click)="goBack()">Назад</a>
+      <a *ngIf="match" class="waves-effect waves-light btn right" (click)="updateMatch()">Сохранить матч</a>
+      <a *ngIf="group" class="waves-effect waves-light btn right" (click)="updateGroup()">Сохранить группу</a>
+      <a *ngIf="team" class="waves-effect waves-light btn right" (click)="updateTeam()">Сохранить команду</a>
+      <a *ngIf="match" class="waves-effect waves-light btn" (click)="deleteMatch(match.id)">Удалить</a>
+      <a *ngIf="group" class="waves-effect waves-light btn" (click)="deleteGroup(group.id)">Удалить</a>
+      <a *ngIf="team" class="waves-effect waves-light btn" (click)="deleteTeam(team.id)">Удалить</a>
     </div>
   </div>
 </div>
