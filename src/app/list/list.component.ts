@@ -6,7 +6,6 @@ import {Team} from '../model/team';
 import {GroupService} from '../services/group.service';
 import {TeamService} from '../services/team.service';
 import {ActivatedRoute} from '@angular/router';
-import {Location} from '@angular/common';
 
 @Component({
   selector: 'app-list',
