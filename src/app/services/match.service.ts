@@ -13,7 +13,7 @@ const httpOptions = {
 })
 export class MatchService {
 
-  private matchesUrl = '//localhost:8080/matches';
+  private matchesUrl = '//localhost:8080/api/matches';
 
   constructor(private http: HttpClient) {
   }
@@ -43,7 +43,7 @@ export class MatchService {
         catchError(this.handleError<Match>(`getMatch id=${id}`)));
   }
 
-  /** PUT: update the hero on the server */
+  /** PUT: update the match on the server */
   update(match: Match): Observable<any> {
     return this.http.put(`${this.matchesUrl}/${match.id}`, match, httpOptions).pipe(
       tap(() => console.log(`updated match id=${match.id}`)),
@@ -51,7 +51,15 @@ export class MatchService {
     );
   }
 
-  /** Delete: delete the team on the server */
+  /** POST: update the match on the server */
+  save(match: Match): Observable<any> {
+    return this.http.post(`${this.matchesUrl}`, match, httpOptions).pipe(
+      tap(() => console.log(`save match id=${match.id}`)),
+      catchError(this.handleError<any>('saveMatch'))
+    );
+  }
+
+  /** Delete: delete the match on the server */
   deleteMatch(id: number): Observable<any> {
     return this.http.delete(`${this.matchesUrl}/${id}`, httpOptions).pipe(
       tap(() => console.log(`delete match id=${id}`)),

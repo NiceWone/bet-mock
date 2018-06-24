@@ -100,9 +100,9 @@
     </div>
     <div class="card-action center-align">
       <a class="waves-effect waves-light btn left" (click)="goBack()">Назад</a>
-      <a *ngIf="match" class="waves-effect waves-light btn right" (click)="updateMatch()">Сохранить матч</a>
-      <a *ngIf="group" class="waves-effect waves-light btn right" (click)="updateGroup()">Сохранить группу</a>
-      <a *ngIf="team" class="waves-effect waves-light btn right" (click)="updateTeam()">Сохранить команду</a>
+      <a *ngIf="match" class="waves-effect waves-light btn right" (click)="saveMatch()">Сохранить матч</a>
+      <a *ngIf="group" class="waves-effect waves-light btn right" (click)="saveGroup()">Сохранить группу</a>
+      <a *ngIf="team" class="waves-effect waves-light btn right" (click)="saveTeam()">Сохранить команду</a>
       <a *ngIf="match" class="waves-effect waves-light btn" (click)="deleteMatch(match.id)">Удалить</a>
       <a *ngIf="group" class="waves-effect waves-light btn" (click)="deleteGroup(group.id)">Удалить</a>
       <a *ngIf="team" class="waves-effect waves-light btn" (click)="deleteTeam(team.id)">Удалить</a>

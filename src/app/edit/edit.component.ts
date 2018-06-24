@@ -98,9 +98,14 @@ export class EditComponent implements OnInit {
     this.location.back();
   }
 
-  updateMatch(): void {
-    this.matchService.update(this.match)
-      .subscribe(() => this.goBack());
+  saveMatch(): void {
+    if (isNaN(this.match.id)) {
+      this.matchService.save(this.match)
+        .subscribe(() => this.goBack());
+    } else {
+      this.matchService.update(this.match)
+        .subscribe(() => this.goBack());
+    }
   }
 
   deleteMatch(id: number): void {
@@ -108,9 +113,14 @@ export class EditComponent implements OnInit {
       .subscribe(() => this.goBack());
   }
 
-  updateGroup(): void {
-    this.groupService.update(this.group)
-      .subscribe(() => this.goBack());
+  saveGroup(): void {
+    if (isNaN(this.group.id)) {
+      this.groupService.save(this.group)
+        .subscribe(() => this.goBack());
+    } else {
+      this.groupService.update(this.group)
+        .subscribe(() => this.goBack());
+    }
   }
 
   deleteGroup(id: number): void {
@@ -118,9 +128,14 @@ export class EditComponent implements OnInit {
       .subscribe(() => this.goBack());
   }
 
-  updateTeam(): void {
-    this.teamService.update(this.team)
-      .subscribe(() => this.goBack());
+  saveTeam(): void {
+    if (isNaN(this.team.id)) {
+      this.teamService.save(this.team)
+        .subscribe(() => this.goBack());
+    } else {
+      this.teamService.update(this.team)
+        .subscribe(() => this.goBack());
+    }
   }
 
   deleteTeam(id: number): void {

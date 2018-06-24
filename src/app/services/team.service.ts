@@ -13,7 +13,7 @@ const httpOptions = {
 })
 export class TeamService {
 
-  private teamUrl = '//localhost:8080/teams';
+  private teamUrl = '//localhost:8080/api/teams';
 
   constructor(private http: HttpClient) {
   }
@@ -47,6 +47,14 @@ export class TeamService {
     return this.http.put(`${this.teamUrl}/${team.id}`, team, httpOptions).pipe(
       tap(() => console.log(`updated team id=${team.id}`)),
       catchError(this.handleError<any>('updateTeam'))
+    );
+  }
+
+  /** POST: update the team on the server */
+  save(team: Team): Observable<any> {
+    return this.http.post(`${this.teamUrl}`, team, httpOptions).pipe(
+      tap(() => console.log(`save team id=${team.id}`)),
+      catchError(this.handleError<any>('saveTeam'))
     );
   }
 

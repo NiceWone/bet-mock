@@ -13,7 +13,7 @@ const httpOptions = {
 })
 export class GroupService {
 
-  private groupsUrl = '//localhost:8080/groups';
+  private groupsUrl = '//localhost:8080/api/groups';
 
 
   constructor(private http: HttpClient) {
@@ -35,7 +35,7 @@ export class GroupService {
         catchError(this.handleError<Group>(`getGroup id=${id}`)));
   }
 
-  /** PUT: update the hero on the server */
+  /** PUT: update the group on the server */
   update(group: Group): Observable<any> {
     return this.http.put(`${this.groupsUrl}/${group.id}`, group, httpOptions).pipe(
       tap(() => console.log(`updated group id=${group.id}`)),
@@ -43,7 +43,15 @@ export class GroupService {
     );
   }
 
-  /** Delete: delete the team on the server */
+  /** POST: update the group on the server */
+  save(group: Group): Observable<any> {
+    return this.http.post(`${this.groupsUrl}`, group, httpOptions).pipe(
+      tap(() => console.log(`save group id=${group.id}`)),
+      catchError(this.handleError<any>('saveGroup'))
+    );
+  }
+
+  /** Delete: delete the group on the server */
   deleteGroup(id: number): Observable<any> {
     return this.http.delete(`${this.groupsUrl}/${id}`, httpOptions).pipe(
       tap(() => console.log(`delete group id=${id}`)),

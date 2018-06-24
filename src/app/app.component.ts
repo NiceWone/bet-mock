@@ -8,4 +8,8 @@ import {Component} from '@angular/core';
 export class AppComponent {
 
   title = '2018 FIFA World Cup Russia™';
+
+  logout() {
+
+  }
 }
