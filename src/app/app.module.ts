@@ -18,7 +18,7 @@ import {MatSelectModule} from '@angular/material/select';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import {
   MatButtonModule,
-  MatDatepickerModule,
+  MatDatepickerModule, MatGridListModule,
   MatIconModule,
   MatInputModule,
   MatListModule,
@@ -69,6 +69,7 @@ registerLocaleData(localeRu, 'ru');
     MatListModule,
     MatCardModule,
     FlexLayoutModule,
+    MatGridListModule
   ],
   providers: [
     AuthGuard,

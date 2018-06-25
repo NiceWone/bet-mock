@@ -1,8 +1,4 @@
-<!--<a class="brand-logo center"></a>-->
-<!--<ul class="right hide-on-med-and-down">-->
-
-
-<div style="height: 100vh;">
+<div>
   <mat-toolbar color="primary">
     <mat-toolbar-row>
       <button mat-icon-button (click)="sidenav.toggle()" fxShow="true" fxHide.gt-sm>
@@ -14,10 +10,12 @@
         <a routerLink="/dashboard" routerLinkActive="active" mat-button>Главная</a>
         <a routerLink="/group" routerLinkActive="active" mat-button>Группы</a>
         <a routerLink="/play-off" routerLinkActive="active" mat-button>Плей-офф</a>
+        <span class="spacer">|</span>
         <a routerLink="/matches" routerLinkActive="active" mat-button>Матчи</a>
         <a routerLink="/groups" routerLinkActive="active" mat-button>Группы</a>
         <a routerLink="/teams" routerLinkActive="active" mat-button>Команды</a>
         <a routerLink="/users" routerLinkActive="active" mat-button>Users</a>
+        <span class="example-spacer">|</span>
         <a routerLink="/login" routerLinkActive="active" mat-button>Login</a>
         <a (click)="logout()" mat-button>Logout</a>
       </div>
