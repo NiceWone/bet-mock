@@ -1,7 +1,7 @@
-.my-menu > a{
-  padding-left: 10px;
+.example-icon {
+  padding: 0 14px;
 }
 
-.container {
-  padding-top: 20px;
+.example-spacer {
+  flex: 1 1 auto;
 }

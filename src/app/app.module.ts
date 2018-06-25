@@ -16,11 +16,22 @@ import localeRu from '@angular/common/locales/ru';
 import {LOCALE_ID, NgModule} from '@angular/core';
 import {MatSelectModule} from '@angular/material/select';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
-import {MatDatepickerModule, MatInputModule, MatNativeDateModule} from '@angular/material';
+import {
+  MatButtonModule,
+  MatDatepickerModule,
+  MatIconModule,
+  MatInputModule,
+  MatListModule,
+  MatNativeDateModule,
+  MatSidenavModule, MatToolbarModule
+} from '@angular/material';
 import {LoginComponent} from './login/login.component';
 import {AuthGuard} from './auth.guard';
 import {AuthInterceptor} from './http-interceptors/auth-interceptor';
-import { RegisterComponent } from './register/register.component';
+import {RegisterComponent} from './register/register.component';
+import {MatMenuModule} from '@angular/material/menu';
+import {LayoutModule} from '@angular/cdk/layout';
+import {FlexLayoutModule} from '@angular/flex-layout';
 
 registerLocaleData(localeRu, 'ru');
 
@@ -48,11 +59,20 @@ registerLocaleData(localeRu, 'ru');
     MatDatepickerModule,
     MatNativeDateModule,
     MatInputModule,
+    MatMenuModule,
+    MatToolbarModule,
+    MatButtonModule,
+    MatSidenavModule,
+    MatIconModule,
+    LayoutModule,
+    MatListModule,
+    MatCardModule,
+    FlexLayoutModule
   ],
   providers: [
     AuthGuard,
     {provide: LOCALE_ID, useValue: 'ru'},
-    { provide: HTTP_INTERCEPTORS, useClass: AuthInterceptor, multi: true },
+    {provide: HTTP_INTERCEPTORS, useClass: AuthInterceptor, multi: true},
   ],
   bootstrap: [AppComponent]
 })
