@@ -24,7 +24,7 @@ export class LoginComponent implements OnInit {
   }
 
   doLogin(user: User) {
-    this.authService.loginByFields(user.login, user.password)
+    this.authService.loginByFields(user)
       .subscribe(() => this.router.navigate([this.returnUrl]));
   }
 }

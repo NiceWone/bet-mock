@@ -20,10 +20,10 @@ export class AuthService {
   }
 
   /** POST: login user on the server */
-  loginByFields(login: string, password: string): Observable<any> {
-    return this.http.post<any>(this.loginUrl, {login: login, password: password})
+  loginByFields(user: User): Observable<any> {
+    return this.http.post<any>(this.loginUrl, {login: user.login, password: user.password})
       .pipe(
-        tap(() => console.log(`login user id=${login}`)),
+        tap(() => console.log(`login user id=${user.login}`)),
         map(token => {
           if (token && token.value) {
             localStorage.setItem('token', token.value);
