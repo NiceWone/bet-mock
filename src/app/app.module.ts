@@ -32,6 +32,7 @@ import {RegisterComponent} from './register/register.component';
 import {MatMenuModule} from '@angular/material/menu';
 import {LayoutModule} from '@angular/cdk/layout';
 import {FlexLayoutModule} from '@angular/flex-layout';
+// import 'hammerjs';
 
 registerLocaleData(localeRu, 'ru');
 
@@ -67,7 +68,7 @@ registerLocaleData(localeRu, 'ru');
     LayoutModule,
     MatListModule,
     MatCardModule,
-    FlexLayoutModule
+    FlexLayoutModule,
   ],
   providers: [
     AuthGuard,

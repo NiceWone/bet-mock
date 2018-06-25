@@ -50,5 +50,4 @@ export class ListComponent implements OnInit {
         .subscribe(teams => this.teams = teams);
     }
   }
-
 }

@@ -1,34 +1,47 @@
-<div class="row add-btn">
-  <a *ngIf="matches" class="waves-effect waves-light btn" routerLink="/edit/match/0">Добавить</a>
-  <a *ngIf="groups" class="waves-effect waves-light btn" routerLink="/edit/group/0">Добавить</a>
-  <a *ngIf="teams" class="waves-effect waves-light btn" routerLink="/edit/team/0">Добавить</a>
-  <a *ngIf="users" class="waves-effect waves-light btn" routerLink="/edit/user/0">Добавить</a>
+<div align="center">
+
+  <a *ngIf="matches" routerLink="/edit/match/0" mat-button>Добавить</a>
+  <a *ngIf="groups" routerLink="/edit/group/0" mat-button>Добавить</a>
+  <a *ngIf="teams" routerLink="/edit/team/0" mat-button>Добавить</a>
+  <a *ngIf="users" routerLink="/edit/user/0" mat-button>Добавить</a>
 </div>
-<ul class="collection with-header">
-  <li *ngIf="matches" class="collection-header"><h4>Matches</h4></li>
-  <li *ngIf="groups" class="collection-header"><h4>Groups</h4></li>
-  <li *ngIf="teams" class="collection-header"><h4>Teams</h4></li>
-  <li *ngIf="users" class="collection-header"><h4>Users</h4></li>
-  <li>
-    <a *ngFor="let match of matches" class="collection-item ci-center" routerLink="/edit/match/{{match.id}}">
-      {{
-      (match.team1 === null ? 'TBD' : match.team1.name)
-      + ' - ' +
-      (match.team2 === null ? 'TBD' : match.team2.name)
-      }}
-      <div class="secondary-content">{{match.date | date:"h:mm:ss dd.MM.yy"}}</div>
-    </a>
-    <a *ngFor="let group of groups" class="collection-item ci-center" routerLink="/edit/group/{{group.id}}">
-      {{group.name}}
-      <div class="secondary-content">{{group.id}}</div>
-    </a>
-    <a *ngFor="let team of teams" class="collection-item ci-center" routerLink="/edit/team/{{team.id}}">
-      {{team.name}}
-      <div class="secondary-content">{{team.id}}</div>
-    </a>
-    <a *ngFor="let user of users" class="collection-item ci-center" routerLink="/edit/user/{{user.id}}">
-      {{user.login}}
-      <div class="secondary-content">{{user.id}}</div>
-    </a>
-  </li>
-</ul>
+
+<mat-card>
+  <div align="center" *ngIf="matches"><h4>Matches</h4></div>
+  <div align="center" *ngIf="groups"><h4>Groups</h4></div>
+  <div align="center" *ngIf="teams"><h4>Teams</h4></div>
+  <div align="center" *ngIf="users"><h4>Users</h4></div>
+  <mat-nav-list>
+    <mat-list-item *ngFor="let match of matches">
+      <a matLine routerLink="/edit/match/{{match.id}}">
+        {{match.date | date:"h:mm:ss dd.MM.yy"}}
+        {{
+        (match.team1 === null ? 'TBD' : match.team1.name)
+        + ' - ' +
+        (match.team2 === null ? 'TBD' : match.team2.name)
+        }}
+      </a>
+      <button mat-icon-button (click)="showInfo(match.id)">
+        <mat-icon>delete</mat-icon>
+      </button>
+    </mat-list-item>
+    <mat-list-item *ngFor="let group of groups">
+      <a matLine routerLink="/edit/group/{{group.id}}">{{group.name}}</a>
+      <button mat-icon-button (click)="showInfo(group.name)">
+        <mat-icon>delete</mat-icon>
+      </button>
+    </mat-list-item>
+    <mat-list-item *ngFor="let team of teams">
+      <a matLine routerLink="/edit/team/{{team.id}}">{{ team.name }}</a>
+      <button mat-icon-button (click)="showInfo(team.name)">
+        <mat-icon>delete</mat-icon>
+      </button>
+    </mat-list-item>
+    <mat-list-item *ngFor="let user of users">
+      <a matLine routerLink="/edit/user/{{user.id}}">{{ user.login }}</a>
+      <button mat-icon-button (click)="showInfo(user.login)">
+        <mat-icon>delete</mat-icon>
+      </button>
+    </mat-list-item>
+  </mat-nav-list>
+</mat-card>
