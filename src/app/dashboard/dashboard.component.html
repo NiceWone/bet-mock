@@ -1,5 +1,6 @@
-<div *ngIf="actualMatches?.length > 0" align="center">
-  <mat-card><h3>Ближайшие</h3>
+<mat-card>
+  <div *ngIf="actualMatches?.length > 0" align="center">
+    <h3>Ближайшие</h3>
 
     <mat-grid-list cols="4" rowHeight="100px">
       <mat-grid-tile *ngFor="let match of actualMatches" routerLink="/match/{{match.id}}" class="module">
@@ -9,11 +10,10 @@
         }}
       </mat-grid-tile>
     </mat-grid-list>
-  </mat-card>
-</div>
+  </div>
 
-<div *ngIf="futureMatches?.length > 0" align="center">
-  <mat-card><h3>Будущие</h3>
+  <div *ngIf="futureMatches?.length > 0" align="center">
+    <h3>Будущие</h3>
 
     <mat-grid-list cols="4" rowHeight="100px">
       <mat-grid-tile *ngFor="let match of futureMatches" routerLink="/match/{{match.id}}" class="module">
@@ -23,11 +23,11 @@
         }}
       </mat-grid-tile>
     </mat-grid-list>
-  </mat-card>
-</div>
 
-<div *ngIf="passedMatches?.length > 0" align="center">
-  <mat-card><h3>Прошедшие</h3>
+  </div>
+
+  <div *ngIf="passedMatches?.length > 0" align="center">
+    <h3>Прошедшие</h3>
 
     <mat-grid-list cols="4" rowHeight="100px">
       <mat-grid-tile *ngFor="let match of passedMatches" routerLink="/match/{{match.id}}" class="module">
@@ -37,5 +37,6 @@
         }}
       </mat-grid-tile>
     </mat-grid-list>
-  </mat-card>
-</div>
+
+  </div>
+</mat-card>

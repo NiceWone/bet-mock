@@ -11,6 +11,7 @@ import {MatchService} from '../services/match.service';
 })
 export class GroupComponent implements OnInit {
 
+  displayedColumns = ['Teams', 'M', 'O'];
   groups: Group[] = [];
 
   constructor(
@@ -27,7 +28,6 @@ export class GroupComponent implements OnInit {
     this.groupService.getGroups()
       .subscribe(groups => {
         this.groups = groups;
-        // this.calculateAllGroups();
       });
   }
 

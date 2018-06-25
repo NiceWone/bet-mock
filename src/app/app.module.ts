@@ -23,7 +23,7 @@ import {
   MatInputModule,
   MatListModule,
   MatNativeDateModule,
-  MatSidenavModule, MatToolbarModule
+  MatSidenavModule, MatTableModule, MatToolbarModule
 } from '@angular/material';
 import {LoginComponent} from './login/login.component';
 import {AuthGuard} from './auth.guard';
@@ -69,7 +69,8 @@ registerLocaleData(localeRu, 'ru');
     MatListModule,
     MatCardModule,
     FlexLayoutModule,
-    MatGridListModule
+    MatGridListModule,
+    MatTableModule
   ],
   providers: [
     AuthGuard,
