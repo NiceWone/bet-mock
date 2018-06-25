@@ -25,6 +25,7 @@ export class AuthService {
   loginByFields(username: string, password: string): Observable<any> {
     return this.http.post<any>(this.loginUrl, {login: username, password: password})
       .pipe(
+        tap(() => console.log(`login user id=${username}`)),
         map(token => {
           if (token && token.value) {
             localStorage.setItem('token', token.value);
@@ -38,8 +39,7 @@ export class AuthService {
   }
 
   getAuthorizationToken(): string {
-    this.token = 'wjuTiaWDopSStRU';
-    return this.token;
+    return localStorage.getItem('token');
   }
 
   /**

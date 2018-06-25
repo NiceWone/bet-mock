@@ -19,9 +19,6 @@ export class LoginComponent implements OnInit {
 
   doLogin(user: User) {
     this.authService.loginByFields(user.login, user.password)
-      .subscribe(resp => {
-        console.log(resp);
-        console.log(localStorage.getItem('token'));
-      });
+      .subscribe();
   }
 }
