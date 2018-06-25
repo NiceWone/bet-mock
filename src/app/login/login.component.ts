@@ -16,7 +16,6 @@ export class LoginComponent implements OnInit {
   constructor(private route: ActivatedRoute,
               private router: Router,
               private authService: AuthService) {
-    // reset login status
     this.authService.logout();
   }
 
@@ -27,10 +26,5 @@ export class LoginComponent implements OnInit {
   doLogin(user: User) {
     this.authService.loginByFields(user.login, user.password)
       .subscribe(() => this.router.navigate([this.returnUrl]));
-  }
-
-  doSignUp(user: User) {
-    this.authService.registerUser(user.login, user.password)
-      .subscribe(() => this.router.navigate(['/login']));
   }
 }

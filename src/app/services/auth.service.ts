@@ -33,10 +33,10 @@ export class AuthService {
   }
 
   /** POST: signUp user on the server */
-  registerUser(login: string, password: string): Observable<any> {
-    return this.http.post<any>(this.sigUpUrl, {login: login, password: password})
+  registerUser(user: User): Observable<any> {
+    return this.http.post<any>(this.sigUpUrl, user)
       .pipe(
-        tap(() => console.log(`register user id=${login}`)),
+        tap(() => console.log(`register user id=${user.login}`)),
         catchError(this.handleError('register', [])));
   }
 
