@@ -2,11 +2,13 @@
   <a *ngIf="matches" class="waves-effect waves-light btn" routerLink="/edit/match/0">Добавить</a>
   <a *ngIf="groups" class="waves-effect waves-light btn" routerLink="/edit/group/0">Добавить</a>
   <a *ngIf="teams" class="waves-effect waves-light btn" routerLink="/edit/team/0">Добавить</a>
+  <a *ngIf="users" class="waves-effect waves-light btn" routerLink="/edit/user/0">Добавить</a>
 </div>
 <ul class="collection with-header">
   <li *ngIf="matches" class="collection-header"><h4>Matches</h4></li>
   <li *ngIf="groups" class="collection-header"><h4>Groups</h4></li>
   <li *ngIf="teams" class="collection-header"><h4>Teams</h4></li>
+  <li *ngIf="users" class="collection-header"><h4>Users</h4></li>
   <li>
     <a *ngFor="let match of matches" class="collection-item ci-center" routerLink="/edit/match/{{match.id}}">
       {{
@@ -23,6 +25,10 @@
     <a *ngFor="let team of teams" class="collection-item ci-center" routerLink="/edit/team/{{team.id}}">
       {{team.name}}
       <div class="secondary-content">{{team.id}}</div>
+    </a>
+    <a *ngFor="let user of users" class="collection-item ci-center" routerLink="/edit/user/{{user.id}}">
+      {{user.login}}
+      <div class="secondary-content">{{user.id}}</div>
     </a>
   </li>
 </ul>

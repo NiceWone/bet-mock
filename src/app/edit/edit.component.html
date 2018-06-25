@@ -97,15 +97,28 @@
           <input [(ngModel)]="team.name" placeholder="name"/>
         </label>
       </div>
+      <div *ngIf="user">
+        <span class="card-title center"> User </span>
+        <div *ngIf="user.id;">
+          <label>id:
+            <input [(ngModel)]="user.id" placeholder="user.id"/>
+          </label>
+        </div>
+        <label>name:
+          <input [(ngModel)]="user.login" placeholder="name"/>
+        </label>
+      </div>
     </div>
     <div class="card-action center-align">
       <a class="waves-effect waves-light btn left" (click)="goBack()">Назад</a>
       <a *ngIf="match" class="waves-effect waves-light btn right" (click)="saveMatch()">Сохранить матч</a>
       <a *ngIf="group" class="waves-effect waves-light btn right" (click)="saveGroup()">Сохранить группу</a>
       <a *ngIf="team" class="waves-effect waves-light btn right" (click)="saveTeam()">Сохранить команду</a>
+      <a *ngIf="user" class="waves-effect waves-light btn right" (click)="saveUser()">Сохранить user</a>
       <a *ngIf="match" class="waves-effect waves-light btn" (click)="deleteMatch(match.id)">Удалить</a>
       <a *ngIf="group" class="waves-effect waves-light btn" (click)="deleteGroup(group.id)">Удалить</a>
       <a *ngIf="team" class="waves-effect waves-light btn" (click)="deleteTeam(team.id)">Удалить</a>
+      <a *ngIf="user" class="waves-effect waves-light btn" (click)="deleteUser(user.id)">Удалить</a>
     </div>
   </div>
 </div>

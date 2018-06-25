@@ -7,6 +7,8 @@ import {Group} from '../model/group';
 import {Team} from '../model/team';
 import {GroupService} from '../services/group.service';
 import {TeamService} from '../services/team.service';
+import {User} from '../model/user';
+import {UserService} from '../services/user.service';
 
 @Component({
   selector: 'app-edit',
@@ -18,6 +20,7 @@ export class EditComponent implements OnInit {
   match: Match;
   group: Group;
   team: Team;
+  user: User;
   teams: Team[] = [];
 
   constructor(
@@ -25,6 +28,7 @@ export class EditComponent implements OnInit {
     private matchService: MatchService,
     private groupService: GroupService,
     private teamService: TeamService,
+    private userService: UserService,
     private location: Location,
   ) {
   }
@@ -57,6 +61,10 @@ export class EditComponent implements OnInit {
           this.team = new Team();
           break;
         }
+        case 'user': {
+          this.user = new User();
+          break;
+        }
         default: {
           console.log('Invalid choice');
           break;
@@ -80,6 +88,11 @@ export class EditComponent implements OnInit {
           .subscribe(team => this.team = team);
         break;
       }
+      case 'user': {
+        this.userService.getUser(id)
+          .subscribe(user => this.user = user);
+        break;
+      }
       default: {
         console.log('Invalid choice');
         break;
@@ -88,8 +101,6 @@ export class EditComponent implements OnInit {
   }
 
   private getTeams() {
-    // this.teamService.getTeamsWithFreeGroup()
-    //   .subscribe(teams => this.teams = teams);
     this.teamService.getTeams()
       .subscribe(teams => this.teams = teams);
   }
@@ -140,6 +151,21 @@ export class EditComponent implements OnInit {
 
   deleteTeam(id: number): void {
     this.teamService.deleteTeam(id)
+      .subscribe(() => this.goBack());
+  }
+
+  saveUser(): void {
+    if (isNaN(this.user.id)) {
+      this.userService.saveUser(this.user)
+        .subscribe(() => this.goBack());
+    } else {
+      this.userService.updateUser(this.user)
+        .subscribe(() => this.goBack());
+    }
+  }
+
+  deleteUser(id: number): void {
+    this.userService.deleteUser(id)
       .subscribe(() => this.goBack());
   }
 }

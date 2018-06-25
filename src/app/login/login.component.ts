@@ -16,6 +16,8 @@ export class LoginComponent implements OnInit {
   constructor(private route: ActivatedRoute,
               private router: Router,
               private authService: AuthService) {
+    // reset login status
+    this.authService.logout();
   }
 
   ngOnInit() {
@@ -28,7 +30,7 @@ export class LoginComponent implements OnInit {
   }
 
   doSignUp(user: User) {
-    this.authService.signUpUser(user.login, user.password)
+    this.authService.registerUser(user.login, user.password)
       .subscribe(() => this.router.navigate(['/login']));
   }
 }

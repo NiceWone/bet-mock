@@ -18,7 +18,6 @@ import {MatSelectModule} from '@angular/material/select';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import {MatDatepickerModule, MatInputModule, MatNativeDateModule} from '@angular/material';
 import {LoginComponent} from './login/login.component';
-import {ListUserComponent} from './list-user/list-user.component';
 import {AuthGuard} from './auth.guard';
 import {AuthInterceptor} from './http-interceptors/auth-interceptor';
 import { RegisterComponent } from './register/register.component';
@@ -36,7 +35,6 @@ registerLocaleData(localeRu, 'ru');
     EditComponent,
     ListComponent,
     LoginComponent,
-    ListUserComponent,
     RegisterComponent,
   ],
   imports: [

@@ -33,7 +33,7 @@ export class AuthService {
   }
 
   /** POST: signUp user on the server */
-  signUpUser(login: string, password: string): Observable<any> {
+  registerUser(login: string, password: string): Observable<any> {
     return this.http.post<any>(this.sigUpUrl, {login: login, password: password})
       .pipe(
         tap(() => console.log(`register user id=${login}`)),
@@ -42,6 +42,10 @@ export class AuthService {
 
   getAuthorizationToken(): string {
     return localStorage.getItem('token');
+  }
+
+  logout() {
+    localStorage.removeItem('token');
   }
 
   /**
@@ -58,9 +62,5 @@ export class AuthService {
 
       return of(result as T);
     };
-  }
-
-  logout() {
-    localStorage.removeItem('token');
   }
 }
