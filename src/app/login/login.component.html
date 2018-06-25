@@ -1,3 +1,13 @@
-<p>
-  login works!
-</p>
+<div>
+  <span class="card-title center"> Команда </span>
+  <label>id:
+    <input [(ngModel)]="user.login" placeholder="user.login"/>
+  </label>
+  <label>name:
+    <input [(ngModel)]="user.password" placeholder="user.password"/>
+  </label>
+  <div class="card-action center-align">
+    <a class="waves-effect waves-light btn left" (click)="doLogin(user)">Login</a>
+  </div>
+</div>
+

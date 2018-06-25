@@ -15,7 +15,6 @@ export class GroupService {
 
   private groupsUrl = '//localhost:8080/api/groups';
 
-
   constructor(private http: HttpClient) {
   }
 

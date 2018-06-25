@@ -17,8 +17,9 @@ import {LOCALE_ID, NgModule} from '@angular/core';
 import {MatSelectModule} from '@angular/material/select';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import {MatDatepickerModule, MatInputModule, MatNativeDateModule} from '@angular/material';
-import { LoginComponent } from './login/login.component';
-import { ListUserComponent } from './list-user/list-user.component';
+import {LoginComponent} from './login/login.component';
+import {ListUserComponent} from './list-user/list-user.component';
+import {httpInterceptorProviders} from './http-interceptors';
 
 registerLocaleData(localeRu, 'ru');
 
@@ -33,7 +34,7 @@ registerLocaleData(localeRu, 'ru');
     EditComponent,
     ListComponent,
     LoginComponent,
-    ListUserComponent
+    ListUserComponent,
   ],
   imports: [
     BrowserModule,
@@ -45,9 +46,11 @@ registerLocaleData(localeRu, 'ru');
     BrowserAnimationsModule,
     MatDatepickerModule,
     MatNativeDateModule,
-    MatInputModule
+    MatInputModule,
   ],
-  providers: [{provide: LOCALE_ID, useValue: 'ru'}],
+  providers: [
+    {provide: LOCALE_ID, useValue: 'ru'},
+    httpInterceptorProviders],
   bootstrap: [AppComponent]
 })
 export class AppModule {
