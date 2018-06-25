@@ -15,17 +15,15 @@ export class AuthService {
 
   private loginUrl = '//localhost:8080/login';
   private sigUpUrl = '//localhost:8080/signUp';
-  private token: string;
-  private user: User;
 
   constructor(private http: HttpClient) {
   }
 
-  /** POST: login on the server */
-  loginByFields(username: string, password: string): Observable<any> {
-    return this.http.post<any>(this.loginUrl, {login: username, password: password})
+  /** POST: login user on the server */
+  loginByFields(login: string, password: string): Observable<any> {
+    return this.http.post<any>(this.loginUrl, {login: login, password: password})
       .pipe(
-        tap(() => console.log(`login user id=${username}`)),
+        tap(() => console.log(`login user id=${login}`)),
         map(token => {
           if (token && token.value) {
             localStorage.setItem('token', token.value);
@@ -34,8 +32,12 @@ export class AuthService {
         catchError(this.handleError('login', [])));
   }
 
-  logout() {
-    localStorage.removeItem('token');
+  /** POST: signUp user on the server */
+  signUpUser(login: string, password: string): Observable<any> {
+    return this.http.post<any>(this.sigUpUrl, {login: login, password: password})
+      .pipe(
+        tap(() => console.log(`register user id=${login}`)),
+        catchError(this.handleError('register', [])));
   }
 
   getAuthorizationToken(): string {
@@ -56,5 +58,9 @@ export class AuthService {
 
       return of(result as T);
     };
+  }
+
+  logout() {
+    localStorage.removeItem('token');
   }
 }

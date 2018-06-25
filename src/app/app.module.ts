@@ -21,6 +21,7 @@ import {LoginComponent} from './login/login.component';
 import {ListUserComponent} from './list-user/list-user.component';
 import {AuthGuard} from './auth.guard';
 import {AuthInterceptor} from './http-interceptors/auth-interceptor';
+import { RegisterComponent } from './register/register.component';
 
 registerLocaleData(localeRu, 'ru');
 
@@ -36,6 +37,7 @@ registerLocaleData(localeRu, 'ru');
     ListComponent,
     LoginComponent,
     ListUserComponent,
+    RegisterComponent,
   ],
   imports: [
     BrowserModule,
