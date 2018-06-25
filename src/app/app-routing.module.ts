@@ -8,10 +8,11 @@ import {PlayOffComponent} from './play-off/play-off.component';
 import {EditComponent} from './edit/edit.component';
 import {ListComponent} from './list/list.component';
 import {LoginComponent} from './login/login.component';
+import {ListUserComponent} from './list-user/list-user.component';
 
 const routes: Routes = [
   {path: '', redirectTo: '/', pathMatch: 'full'},
-  { path: 'login', component: LoginComponent },
+  {path: 'login', component: LoginComponent},
   {path: 'dashboard', component: DashboardComponent},
   {path: 'match/:id', component: MatchComponent},
   {path: 'group', component: GroupComponent},
@@ -23,6 +24,7 @@ const routes: Routes = [
   {path: 'matches', component: ListComponent},
   {path: 'groups', component: ListComponent},
   {path: 'teams', component: ListComponent},
+  {path: 'users', component: ListUserComponent},
 ];
 
 @NgModule({

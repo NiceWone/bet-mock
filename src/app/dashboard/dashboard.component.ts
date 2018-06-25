@@ -22,7 +22,11 @@ export class DashboardComponent implements OnInit {
 
   private getMatches() {
     this.matchService.getMatches()
-      .subscribe(matches => this.doShit(matches));
+      .subscribe(matches => {
+        if (matches !== null) {
+          this.doShit(matches);
+        }
+      });
   }
 
   private doShit(matches: Match[]) {
