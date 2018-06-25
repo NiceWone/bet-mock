@@ -6,7 +6,7 @@ import {AppRoutingModule} from './app-routing.module';
 import {DashboardComponent} from './dashboard/dashboard.component';
 import {MatchComponent} from './match/match.component';
 import {FormsModule} from '@angular/forms';
-import {HttpClientModule} from '@angular/common/http';
+import {HTTP_INTERCEPTORS, HttpClientModule} from '@angular/common/http';
 import {PlayOffComponent} from './play-off/play-off.component';
 import {EditComponent} from './edit/edit.component';
 import {ListComponent} from './list/list.component';
@@ -19,7 +19,8 @@ import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import {MatDatepickerModule, MatInputModule, MatNativeDateModule} from '@angular/material';
 import {LoginComponent} from './login/login.component';
 import {ListUserComponent} from './list-user/list-user.component';
-import {httpInterceptorProviders} from './http-interceptors';
+import {AuthGuard} from './auth.guard';
+import {AuthInterceptor} from './http-interceptors/auth-interceptor';
 
 registerLocaleData(localeRu, 'ru');
 
@@ -49,8 +50,10 @@ registerLocaleData(localeRu, 'ru');
     MatInputModule,
   ],
   providers: [
+    AuthGuard,
     {provide: LOCALE_ID, useValue: 'ru'},
-    httpInterceptorProviders],
+    { provide: HTTP_INTERCEPTORS, useClass: AuthInterceptor, multi: true },
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule {

@@ -12,7 +12,7 @@ import {ListUserComponent} from './list-user/list-user.component';
 import {AuthGuard} from './auth.guard';
 
 const routes: Routes = [
-  {path: '', redirectTo: '/', pathMatch: 'full'},
+  {path: '', redirectTo: '/dashboard', pathMatch: 'full', canActivate: [AuthGuard]},
   {path: 'login', component: LoginComponent},
   {path: 'dashboard', component: DashboardComponent, canActivate: [AuthGuard]},
   {path: 'match/:id', component: MatchComponent, canActivate: [AuthGuard]},
@@ -26,6 +26,7 @@ const routes: Routes = [
   {path: 'groups', component: ListComponent, canActivate: [AuthGuard]},
   {path: 'teams', component: ListComponent, canActivate: [AuthGuard]},
   {path: 'users', component: ListUserComponent, canActivate: [AuthGuard]},
+  { path: '**', redirectTo: '/dashboard' }
 ];
 
 @NgModule({
