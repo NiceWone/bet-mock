@@ -5,7 +5,7 @@ import {GroupDetailsComponent} from './group-details/group-details.component';
 import {AppRoutingModule} from './app-routing.module';
 import {DashboardComponent} from './dashboard/dashboard.component';
 import {MatchComponent} from './match/match.component';
-import {FormsModule} from '@angular/forms';
+import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import {HTTP_INTERCEPTORS, HttpClientModule} from '@angular/common/http';
 import {PlayOffComponent} from './play-off/play-off.component';
 import {EditComponent} from './edit/edit.component';
@@ -70,7 +70,8 @@ registerLocaleData(localeRu, 'ru');
     MatCardModule,
     FlexLayoutModule,
     MatGridListModule,
-    MatTableModule
+    MatTableModule,
+    ReactiveFormsModule,
   ],
   providers: [
     AuthGuard,
