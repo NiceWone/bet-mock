@@ -1,26 +1,47 @@
-<div align="center">
-  <mat-card class="example-card">
-    <mat-card-header>
-      <mat-card-title>Registration</mat-card-title>
-    </mat-card-header>
+<div class="signin-content">
+  <mat-card>
+
     <mat-card-content>
-      <div class="example-container">
-        <mat-form-field>
-          <input matInput placeholder="login" [(ngModel)]="user.login"/>
+
+      <form [formGroup]="form" (ngSubmit)="onSubmit()">
+        <p>Please login to continue</p>
+
+        <mat-form-field class="full-width-input">
+          <input matInput placeholder="User" formControlName="login" required>
+          <mat-error *ngIf="isFieldInvalid('login')">
+            Please inform your user name
+          </mat-error>
         </mat-form-field>
 
-        <mat-form-field>
-          <input matInput placeholder="password" [(ngModel)]="user.password" type="password"/>
+        <mat-form-field class="full-width-input">
+          <input matInput type="password" placeholder="Password" formControlName="password" required>
+          <mat-error *ngIf="isFieldInvalid('password')">
+            Please inform your password
+          </mat-error>
         </mat-form-field>
 
-        <mat-form-field>
-          <input matInput placeholder="email" [(ngModel)]="user.email"/>
+        <mat-form-field class="full-width-input">
+          <input matInput type="password" placeholder="Password" formControlName="password" required>
+          <mat-error *ngIf="isFieldInvalid('password')">
+            Please inform your password
+          </mat-error>
         </mat-form-field>
-      </div>
+
+        <mat-form-field class="full-width-input">
+          <input matInput placeholder="email" formControlName="email" required>
+          <mat-error *ngIf="isFieldInvalid('email')">
+            Please inform your email
+          </mat-error>
+        </mat-form-field>
+
+        <mat-card-actions>
+          <button mat-raised-button color="primary">Registration</button>
+          <button mat-raised-button color="primary" (click)="goBack()">Back</button>
+        </mat-card-actions>
+
+      </form>
+
     </mat-card-content>
-    <mat-card-actions>
-      <button mat-raised-button (click)="goBack()">Back</button>
-      <button mat-raised-button (click)="doSignUp(user)">Registration</button>
-    </mat-card-actions>
+
   </mat-card>
 </div>

@@ -36,12 +36,19 @@ export class AuthService {
       console.log(this.returnUrl);
       this.loginByFields(value)
         .subscribe(() => {
-          console.log(localStorage.getItem('token'));
           if (localStorage.getItem('token')) {
             this.loggedIn.next(true);
             this.router.navigate([this.returnUrl]);
           }
         });
+    }
+  }
+
+  regUser(value: User) {
+    if (value.login !== '' && value.password !== '' && value.email !== '') {
+      console.log(this.returnUrl);
+      this.registerUser(value)
+        .subscribe(() => this.router.navigate(['/login']));
     }
   }
 
@@ -59,6 +66,7 @@ export class AuthService {
         map(token => {
           if (token && token.value) {
             localStorage.setItem('token', token.value);
+            console.log(`token user id=${user.login} is ${token.value}`);
           }
         }),
         catchError(this.handleError('login', [])));
