@@ -32,6 +32,7 @@ import {RegisterComponent} from './register/register.component';
 import {MatMenuModule} from '@angular/material/menu';
 import {LayoutModule} from '@angular/cdk/layout';
 import {FlexLayoutModule} from '@angular/flex-layout';
+import { HeaderComponent } from './header/header.component';
 // import 'hammerjs';
 
 registerLocaleData(localeRu, 'ru');
@@ -48,6 +49,7 @@ registerLocaleData(localeRu, 'ru');
     ListComponent,
     LoginComponent,
     RegisterComponent,
+    HeaderComponent,
   ],
   imports: [
     BrowserModule,

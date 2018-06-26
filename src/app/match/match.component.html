@@ -1,28 +1,31 @@
-<mat-card *ngIf="match" class="example-card">
-  <mat-card-header>
-    <mat-card-title>
-      {{
-      (match.team1 === null ? 'TBD' : match.team1.name)
-      + ' - ' +
-      (match.team2 === null ? 'TBD' : match.team2.name)
-      }}
-    </mat-card-title>
-    <mat-card-subtitle>{{match.scoreTeam1 + ' --- ' + match.scoreTeam2}}</mat-card-subtitle>
-  </mat-card-header>
-  <mat-card-content>
+<div align="center">
+  <mat-card *ngIf="match" class="example-card">
+    <mat-card-header>
+      <mat-card-title>
+        {{
+        (match.team1 === null ? 'TBD' : match.team1.name)
+        + ' - ' +
+        (match.team2 === null ? 'TBD' : match.team2.name)
+        }}
+      </mat-card-title>
+      <mat-card-subtitle>{{match.scoreTeam1 + ' --- ' + match.scoreTeam2}}</mat-card-subtitle>
+    </mat-card-header>
+    <mat-card-content>
     <span class="left">
     {{match.date | date:"h:mm:ss dd.MM.yy"}}
     </span>
 
-    <span class="right">
+      <span class="right">
     {{match.date | date:"h:mm:ss dd.MM.yy"}}
     </span>
-  </mat-card-content>
-  <mat-card-actions>
-    <div>
-      <button mat-raised-button color="primary" (click)="goBack()">Назад</button>
-      <button mat-raised-button color="primary" routerLink="/edit/match/{{match.id}}">Подробнее</button>
-      <button mat-raised-button color="primary" (click)="showBets()">Показать голоса других</button>
-    </div>
-  </mat-card-actions>
-</mat-card>
+    </mat-card-content>
+    <mat-card-actions>
+      <div>
+        <button mat-raised-button color="primary" (click)="goBack()">Назад</button>
+        <button mat-raised-button color="primary" routerLink="/edit/match/{{match.id}}">Подробнее</button>
+        <button mat-raised-button color="primary" (click)="showBets()">Показать голоса других</button>
+      </div>
+    </mat-card-actions>
+  </mat-card>
+</div>
+

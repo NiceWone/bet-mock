@@ -2,6 +2,7 @@ import {Component, OnInit} from '@angular/core';
 import {User} from '../model/user';
 import {AuthService} from '../services/auth.service';
 import {Router} from '@angular/router';
+import {Location} from '@angular/common';
 
 @Component({
   selector: 'app-register',
@@ -14,6 +15,7 @@ export class RegisterComponent implements OnInit {
 
   constructor(private authService: AuthService,
               private router: Router,
+              private location: Location,
   ) {
   }
 
@@ -23,5 +25,9 @@ export class RegisterComponent implements OnInit {
   doSignUp(user: User) {
     this.authService.registerUser(user)
       .subscribe(() => this.router.navigate(['/login']));
+  }
+
+  goBack(): void {
+    this.location.back();
   }
 }

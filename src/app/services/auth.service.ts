@@ -1,8 +1,9 @@
 import {Injectable} from '@angular/core';
 import {HttpClient, HttpHeaders} from '@angular/common/http';
-import {Observable, of} from 'rxjs';
+import {BehaviorSubject, Observable, of} from 'rxjs';
 import {User} from '../model/user';
 import {catchError, map, tap} from 'rxjs/operators';
+import {ActivatedRoute, Router} from '@angular/router';
 
 const httpOptions = {
   headers: new HttpHeaders({'Content-Type': 'application/json'})
@@ -13,10 +14,41 @@ const httpOptions = {
 })
 export class AuthService {
 
+  private loggedIn = new BehaviorSubject<boolean>(false);
   private loginUrl = '//localhost:8080/login';
   private sigUpUrl = '//localhost:8080/signUp';
+  private returnUrl: string;
 
-  constructor(private http: HttpClient) {
+  constructor(
+    private http: HttpClient,
+    private router: Router,
+    private route: ActivatedRoute,
+  ) {
+  }
+
+  get isLoggedIn() {
+    return this.loggedIn.asObservable();
+  }
+
+  login(value: User) {
+    if (value.login !== '' && value.password !== '') {
+      this.returnUrl = this.route.snapshot.queryParams['returnUrl'] || '/';
+      console.log(this.returnUrl);
+      this.loginByFields(value)
+        .subscribe(() => {
+          console.log(localStorage.getItem('token'));
+          if (localStorage.getItem('token')) {
+            this.loggedIn.next(true);
+            this.router.navigate([this.returnUrl]);
+          }
+        });
+    }
+  }
+
+  logout() {
+    localStorage.removeItem('token');
+    this.loggedIn.next(false);
+    this.router.navigate(['/login']);
   }
 
   /** POST: login user on the server */
@@ -42,10 +74,6 @@ export class AuthService {
 
   getAuthorizationToken(): string {
     return localStorage.getItem('token');
-  }
-
-  logout() {
-    localStorage.removeItem('token');
   }
 
   /**

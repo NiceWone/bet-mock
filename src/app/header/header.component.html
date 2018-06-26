@@ -1,0 +1,48 @@
+<div *ngIf="isLoggedIn$ | async">
+  <mat-toolbar color="primary">
+    <mat-toolbar-row>
+      <button mat-icon-button (click)="sidenav.toggle()" fxShow="true" fxHide.gt-sm>
+        <mat-icon>menu</mat-icon>
+      </button>
+      <span>{{title}}</span>
+      <span class="example-spacer"></span>
+      <div fxShow="true" fxHide.lt-md="true">
+        <button routerLink="/dashboard" routerLinkActive="active" mat-button>Главная</button>
+        <button routerLink="/group" routerLinkActive="active" mat-button>Группы</button>
+        <button routerLink="/play-off" routerLinkActive="active" mat-button>Плей-офф</button>
+        <span class="spacer">|</span>
+        <button routerLink="/matches" routerLinkActive="active" mat-button>Матчи</button>
+        <button routerLink="/groups" routerLinkActive="active" mat-button>Группы</button>
+        <button routerLink="/teams" routerLinkActive="active" mat-button>Команды</button>
+        <button routerLink="/users" routerLinkActive="active" mat-button>Users</button>
+        <span class="example-spacer">|</span>
+        <button routerLink="/login" routerLinkActive="active" mat-button *ngIf="!isLoggedIn$ | async as isLoggedIn">
+          Login
+        </button>
+        <button (click)="onLogout()" mat-button>Logout</button>
+      </div>
+    </mat-toolbar-row>
+  </mat-toolbar>
+
+  <!--<mat-sidenav-container fxFlexFill>-->
+  <!--<mat-sidenav #sidenav>-->
+  <!--<mat-nav-list>-->
+  <!--<button routerLink="/dashboard" routerLinkActive="active" mat-button>Главная</button>-->
+  <!--<button routerLink="/group" routerLinkActive="active" mat-button>Группы</button>-->
+  <!--<button routerLink="/play-off" routerLinkActive="active" mat-button>Плей-офф</button>-->
+  <!--<button routerLink="/matches" routerLinkActive="active" mat-button>Матчи</button>-->
+  <!--<button routerLink="/groups" routerLinkActive="active" mat-button>Группы</button>-->
+  <!--<button routerLink="/teams" routerLinkActive="active" mat-button>Команды</button>-->
+  <!--<button routerLink="/users" routerLinkActive="active" mat-button>Users</button>-->
+  <!--<button routerLink="/login" routerLinkActive="active" mat-button>Login</button>-->
+  <!--<button (click)="onLogout()" mat-button>Logout</button>-->
+  <!--<button (click)="sidenav.toggle()" mat-list-item>-->
+  <!--<mat-icon>close</mat-icon>-->
+  <!--Close-->
+  <!--</button>-->
+  <!--</mat-nav-list>-->
+  <!--</mat-sidenav>-->
+  <!--<mat-sidenav-content fxFlexFill>-->
+  <!--</mat-sidenav-content>-->
+  <!--</mat-sidenav-container>-->
+</div>

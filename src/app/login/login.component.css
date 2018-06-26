@@ -1,8 +1,11 @@
-.example-container {
-  display: flex;
-  flex-direction: column;
+mat-card {
+  max-width: 400px;
+  margin: 2em auto;
+  text-align: center;
 }
-
-.example-container > * {
+.signin-content {
+  padding: 60px 1rem;
+}
+.full-width-input {
   width: 100%;
 }

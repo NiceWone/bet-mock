@@ -28,7 +28,7 @@ const routes: Routes = [
   {path: 'groups', component: ListComponent, canActivate: [AuthGuard]},
   {path: 'teams', component: ListComponent, canActivate: [AuthGuard]},
   {path: 'users', component: ListComponent, canActivate: [AuthGuard]},
-  { path: '**', redirectTo: '/dashboard' }
+  {path: '**', redirectTo: '/dashboard'}
 ];
 
 @NgModule({
