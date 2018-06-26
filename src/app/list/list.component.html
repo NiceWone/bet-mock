@@ -1,9 +1,9 @@
 <div align="center">
 
-  <a *ngIf="matches" routerLink="/edit/match/0" mat-button>Добавить</a>
-  <a *ngIf="groups" routerLink="/edit/group/0" mat-button>Добавить</a>
-  <a *ngIf="teams" routerLink="/edit/team/0" mat-button>Добавить</a>
-  <a *ngIf="users" routerLink="/edit/user/0" mat-button>Добавить</a>
+  <button *ngIf="matches" mat-raised-button routerLink="/edit/match/0" mat-button>Добавить</button>
+  <button *ngIf="groups" mat-raised-button routerLink="/edit/group/0" mat-button>Добавить</button>
+  <button *ngIf="teams" mat-raised-button routerLink="/edit/team/0" mat-button>Добавить</button>
+  <button *ngIf="users" mat-raised-button routerLink="/edit/user/0" mat-button>Добавить</button>
 </div>
 
 <mat-card>

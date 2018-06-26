@@ -1,33 +1,28 @@
-<div *ngIf="match">
-  <div class="row">
-    <div class="card large blue-grey darken-1">
-      <div class="card-content white-text">
-          <span class="card-title center">
-          {{
-          (match.team1 === null ? 'TBD' : match.team1.name)
-          + ' - ' +
-          (match.team2 === null ? 'TBD' : match.team2.name)
-          }}
-          </span>
-        <p class="center">
-          {{match.scoreTeam1 + ' ---- ' + match.scoreTeam2}}
-        </p>
+<mat-card *ngIf="match" class="example-card">
+  <mat-card-header>
+    <mat-card-title>
+      {{
+      (match.team1 === null ? 'TBD' : match.team1.name)
+      + ' - ' +
+      (match.team2 === null ? 'TBD' : match.team2.name)
+      }}
+    </mat-card-title>
+    <mat-card-subtitle>{{match.scoreTeam1 + ' --- ' + match.scoreTeam2}}</mat-card-subtitle>
+  </mat-card-header>
+  <mat-card-content>
+    <span class="left">
+    {{match.date | date:"h:mm:ss dd.MM.yy"}}
+    </span>
 
-        <span class="left">
-            {{match.date | date:"h:mm:ss dd.MM.yy"}}
-          </span>
-
-        <span class="right">
-            {{match.date | date:"h:mm:ss dd.MM.yy"}}
-          </span>
-
-      </div>
-      <div class="card-action center-align">
-        <a class="waves-effect waves-light btn left" (click)="goBack()">Назад</a>
-        <a class="waves-effect waves-light btn right" (click)="showBets()">Показать голоса других</a>
-        <a class="waves-effect waves-light btn" routerLink="/edit/match/{{match.id}}">Подробнее</a>
-      </div>
+    <span class="right">
+    {{match.date | date:"h:mm:ss dd.MM.yy"}}
+    </span>
+  </mat-card-content>
+  <mat-card-actions>
+    <div>
+      <button mat-button color="primary" (click)="goBack()">Назад</button>
+      <button mat-button color="primary" routerLink="/edit/match/{{match.id}}">Подробнее</button>
+      <button mat-button color="primary" (click)="showBets()">Показать голоса других</button>
     </div>
-  </div>
-
-</div>
+  </mat-card-actions>
+</mat-card>

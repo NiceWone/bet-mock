@@ -17,6 +17,7 @@ export class GroupDetailsComponent implements OnInit {
   matches: Match[] = [];
   groupLoadFlag = false;
   matchesLoadFlag = false;
+  displayedColumns = ['id', 'name', 'matches', 'points'];
 
   constructor(
     private route: ActivatedRoute,
