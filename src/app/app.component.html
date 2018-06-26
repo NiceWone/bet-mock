@@ -7,17 +7,17 @@
       <span>{{title}}</span>
       <span class="example-spacer"></span>
       <div fxShow="true" fxHide.lt-md="true">
-        <a routerLink="/dashboard" routerLinkActive="active" mat-button>Главная</a>
-        <a routerLink="/group" routerLinkActive="active" mat-button>Группы</a>
-        <a routerLink="/play-off" routerLinkActive="active" mat-button>Плей-офф</a>
+        <button routerLink="/dashboard" routerLinkActive="active" mat-button>Главная</button>
+        <button routerLink="/group" routerLinkActive="active" mat-button>Группы</button>
+        <button routerLink="/play-off" routerLinkActive="active" mat-button>Плей-офф</button>
         <span class="spacer">|</span>
-        <a routerLink="/matches" routerLinkActive="active" mat-button>Матчи</a>
-        <a routerLink="/groups" routerLinkActive="active" mat-button>Группы</a>
-        <a routerLink="/teams" routerLinkActive="active" mat-button>Команды</a>
-        <a routerLink="/users" routerLinkActive="active" mat-button>Users</a>
+        <button routerLink="/matches" routerLinkActive="active" mat-button>Матчи</button>
+        <button routerLink="/groups" routerLinkActive="active" mat-button>Группы</button>
+        <button routerLink="/teams" routerLinkActive="active" mat-button>Команды</button>
+        <button routerLink="/users" routerLinkActive="active" mat-button>Users</button>
         <span class="example-spacer">|</span>
-        <a routerLink="/login" routerLinkActive="active" mat-button>Login</a>
-        <a (click)="logout()" mat-button>Logout</a>
+        <button routerLink="/login" routerLinkActive="active" mat-button>Login</button>
+        <button (click)="logout()" mat-button>Logout</button>
       </div>
     </mat-toolbar-row>
   </mat-toolbar>
@@ -25,19 +25,19 @@
   <mat-sidenav-container fxFlexFill>
     <mat-sidenav #sidenav>
       <mat-nav-list>
-        <a routerLink="/dashboard" routerLinkActive="active" mat-button>Главная</a>
-        <a routerLink="/group" routerLinkActive="active" mat-button>Группы</a>
-        <a routerLink="/play-off" routerLinkActive="active" mat-button>Плей-офф</a>
-        <a routerLink="/matches" routerLinkActive="active" mat-button>Матчи</a>
-        <a routerLink="/groups" routerLinkActive="active" mat-button>Группы</a>
-        <a routerLink="/teams" routerLinkActive="active" mat-button>Команды</a>
-        <a routerLink="/users" routerLinkActive="active" mat-button>Users</a>
-        <a routerLink="/login" routerLinkActive="active" mat-button>Login</a>
-        <a (click)="logout()" mat-button>Logout</a>
-        <a (click)="sidenav.toggle()" mat-list-item>
+        <button routerLink="/dashboard" routerLinkActive="active" mat-button>Главная</button>
+        <button routerLink="/group" routerLinkActive="active" mat-button>Группы</button>
+        <button routerLink="/play-off" routerLinkActive="active" mat-button>Плей-офф</button>
+        <button routerLink="/matches" routerLinkActive="active" mat-button>Матчи</button>
+        <button routerLink="/groups" routerLinkActive="active" mat-button>Группы</button>
+        <button routerLink="/teams" routerLinkActive="active" mat-button>Команды</button>
+        <button routerLink="/users" routerLinkActive="active" mat-button>Users</button>
+        <button routerLink="/login" routerLinkActive="active" mat-button>Login</button>
+        <button (click)="logout()" mat-button>Logout</button>
+        <button (click)="sidenav.toggle()" mat-list-item>
           <mat-icon>close</mat-icon>
           Close
-        </a>
+        </button>
       </mat-nav-list>
     </mat-sidenav>
     <mat-sidenav-content fxFlexFill>

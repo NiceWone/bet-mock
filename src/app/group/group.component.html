@@ -1,26 +1,30 @@
-<mat-card *ngFor="let group of groups" class="example-card">
+<div class="example-container">
 
-  <mat-table [dataSource]="group.teams">
-    <ng-container matColumnDef="Teams">
-      <mat-header-cell *matHeaderCellDef>Teams</mat-header-cell>
-      <mat-cell *matCellDef="let team"> {{team.name}}</mat-cell>
-    </ng-container>
+  <mat-card *ngFor="let group of groups" class="example-card">
 
-    <ng-container matColumnDef="M">
-      <mat-header-cell *matHeaderCellDef> M</mat-header-cell>
-      <mat-cell *matCellDef="let team">{{team.matches}}</mat-cell>
-    </ng-container>
+    <mat-table [dataSource]="group.teams">
+      <ng-container matColumnDef="Teams">
+        <mat-header-cell *matHeaderCellDef>Teams</mat-header-cell>
+        <mat-cell *matCellDef="let team"> {{team.name}}</mat-cell>
+      </ng-container>
 
-    <ng-container matColumnDef="O">
-      <mat-header-cell *matHeaderCellDef> O</mat-header-cell>
-      <mat-cell *matCellDef="let team">{{team.points}}</mat-cell>
-    </ng-container>
+      <ng-container matColumnDef="M">
+        <mat-header-cell *matHeaderCellDef> M</mat-header-cell>
+        <mat-cell *matCellDef="let team">{{team.matches}}</mat-cell>
+      </ng-container>
 
-    <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
-    <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
-  </mat-table>
-  <mat-card-actions>
-    <a routerLink="/group/{{group.id}}" routerLinkActive="active" mat-button>Details</a>
-  </mat-card-actions>
+      <ng-container matColumnDef="O">
+        <mat-header-cell *matHeaderCellDef> O</mat-header-cell>
+        <mat-cell *matCellDef="let team">{{team.points}}</mat-cell>
+      </ng-container>
 
-</mat-card>
+      <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+      <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
+    </mat-table>
+
+    <mat-card-actions>
+      <button routerLink="/group/{{group.id}}" routerLinkActive="active" mat-raised-button>Details</button>
+    </mat-card-actions>
+
+  </mat-card>
+</div>

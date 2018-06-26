@@ -1,6 +1,12 @@
-<div class="row">
-  <div class="card blue-grey darken-1">
-    <div class="card-content white-text">
+<div align="center">
+  <mat-card class="example-card">
+
+    <mat-card-header>
+      <mat-card-title>Shiba Inu</mat-card-title>
+      <mat-card-subtitle>Dog Breed</mat-card-subtitle>
+    </mat-card-header>
+
+    <mat-card-content>
       <div *ngIf="match">
         <span class="card-title center"> Матч </span>
         <div *ngIf="match.id;">
@@ -83,7 +89,7 @@
           </label>
         </div>
         <div class="pdg-but">
-          <a class="waves-effect waves-light btn right" (click)="addTeamTemplate()">Добавить команду</a>
+          <button mat-raised-button (click)="addTeamTemplate()">Добавить команду</button>
         </div>
       </div>
       <div *ngIf="team">
@@ -108,17 +114,19 @@
           <input [(ngModel)]="user.login" placeholder="name"/>
         </label>
       </div>
-    </div>
-    <div class="card-action center-align">
-      <a class="waves-effect waves-light btn left" (click)="goBack()">Назад</a>
-      <a *ngIf="match" class="waves-effect waves-light btn right" (click)="saveMatch()">Сохранить матч</a>
-      <a *ngIf="group" class="waves-effect waves-light btn right" (click)="saveGroup()">Сохранить группу</a>
-      <a *ngIf="team" class="waves-effect waves-light btn right" (click)="saveTeam()">Сохранить команду</a>
-      <a *ngIf="user" class="waves-effect waves-light btn right" (click)="saveUser()">Сохранить user</a>
-      <a *ngIf="match" class="waves-effect waves-light btn" (click)="deleteMatch(match.id)">Удалить</a>
-      <a *ngIf="group" class="waves-effect waves-light btn" (click)="deleteGroup(group.id)">Удалить</a>
-      <a *ngIf="team" class="waves-effect waves-light btn" (click)="deleteTeam(team.id)">Удалить</a>
-      <a *ngIf="user" class="waves-effect waves-light btn" (click)="deleteUser(user.id)">Удалить</a>
-    </div>
-  </div>
+    </mat-card-content>
+
+    <mat-card-actions>
+      <button mat-raised-button (click)="goBack()">Назад</button>
+      <button *ngIf="match" mat-raised-button (click)="saveMatch()">Сохранить матч</button>
+      <button *ngIf="group" mat-raised-button (click)="saveGroup()">Сохранить группу</button>
+      <button *ngIf="team" mat-raised-button (click)="saveTeam()">Сохранить команду</button>
+      <button *ngIf="user" mat-raised-button (click)="saveUser()">Сохранить user</button>
+      <button *ngIf="match" mat-raised-button (click)="deleteMatch(match.id)">Удалить</button>
+      <button *ngIf="group" mat-raised-button (click)="deleteGroup(group.id)">Удалить</button>
+      <button *ngIf="team" mat-raised-button (click)="deleteTeam(team.id)">Удалить</button>
+      <button *ngIf="user" mat-raised-button (click)="deleteUser(user.id)">Удалить</button>
+    </mat-card-actions>
+
+  </mat-card>
 </div>
