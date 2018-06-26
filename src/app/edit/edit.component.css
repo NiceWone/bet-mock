@@ -1,4 +1,12 @@
-.pdg-but {
-  padding-bottom: 20px;
-  padding-top: 20px;
+.example-container {
+  display: flex;
+  flex-direction: column;
+}
+
+.example-container > * {
+  width: 400px;
+}
+
+.example-card {
+  max-width: 400px;
 }

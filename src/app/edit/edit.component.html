@@ -1,10 +1,10 @@
 <div align="center">
   <mat-card class="example-card">
 
-    <mat-card-header>
-      <mat-card-title>Shiba Inu</mat-card-title>
-      <mat-card-subtitle>Dog Breed</mat-card-subtitle>
-    </mat-card-header>
+    <!--<mat-card-header>-->
+    <!--<mat-card-title>Shiba Inu</mat-card-title>-->
+    <!--<mat-card-subtitle>Dog Breed</mat-card-subtitle>-->
+    <!--</mat-card-header>-->
 
     <mat-card-content>
       <div *ngIf="match">
@@ -93,26 +93,14 @@
         </div>
       </div>
       <div *ngIf="team">
-        <span class="card-title center"> Команда </span>
-        <div *ngIf="team.id;">
-          <label>id:
-            <input [(ngModel)]="team.id" placeholder="team.id"/>
-          </label>
-        </div>
-        <label>name:
-          <input [(ngModel)]="team.name" placeholder="name"/>
-        </label>
+        <mat-form-field>
+          <input [(ngModel)]="team.name" placeholder="name" matInput/>
+        </mat-form-field>
       </div>
       <div *ngIf="user">
-        <span class="card-title center"> User </span>
-        <div *ngIf="user.id;">
-          <label>id:
-            <input [(ngModel)]="user.id" placeholder="user.id"/>
-          </label>
-        </div>
-        <label>name:
-          <input [(ngModel)]="user.login" placeholder="name"/>
-        </label>
+        <mat-form-field>
+          <input [(ngModel)]="user.login" placeholder="name" matInput/>
+        </mat-form-field>
       </div>
     </mat-card-content>
 

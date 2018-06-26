@@ -1,47 +1,49 @@
-<div align="center">
+<div align="center" class="example-container">
 
-  <button *ngIf="matches" mat-raised-button routerLink="/edit/match/0" mat-button>Добавить</button>
-  <button *ngIf="groups" mat-raised-button routerLink="/edit/group/0" mat-button>Добавить</button>
-  <button *ngIf="teams" mat-raised-button routerLink="/edit/team/0" mat-button>Добавить</button>
-  <button *ngIf="users" mat-raised-button routerLink="/edit/user/0" mat-button>Добавить</button>
+  <div class="example-card">
+    <button *ngIf="matches" mat-raised-button routerLink="/edit/match/0" mat-button>Добавить</button>
+    <button *ngIf="groups" mat-raised-button routerLink="/edit/group/0" mat-button>Добавить</button>
+    <button *ngIf="teams" mat-raised-button routerLink="/edit/team/0" mat-button>Добавить</button>
+    <button *ngIf="users" mat-raised-button routerLink="/edit/user/0" mat-button>Добавить</button>
+  </div>
+
+  <mat-card class="example-card">
+    <div align="center" *ngIf="matches"><h4>Matches</h4></div>
+    <div align="center" *ngIf="groups"><h4>Groups</h4></div>
+    <div align="center" *ngIf="teams"><h4>Teams</h4></div>
+    <div align="center" *ngIf="users"><h4>Users</h4></div>
+    <mat-nav-list>
+      <mat-list-item *ngFor="let match of matches">
+        <a matLine routerLink="/edit/match/{{match.id}}">
+          {{match.date | date:"h:mm:ss dd.MM.yy"}}
+          {{
+          (match.team1 === null ? 'TBD' : match.team1.name)
+          + ' - ' +
+          (match.team2 === null ? 'TBD' : match.team2.name)
+          }}
+        </a>
+        <button mat-icon-button (click)="showInfo(match.id)">
+          <mat-icon>delete</mat-icon>
+        </button>
+      </mat-list-item>
+      <mat-list-item *ngFor="let group of groups">
+        <a matLine routerLink="/edit/group/{{group.id}}">{{group.name}}</a>
+        <button mat-icon-button (click)="showInfo(group.name)">
+          <mat-icon>delete</mat-icon>
+        </button>
+      </mat-list-item>
+      <mat-list-item *ngFor="let team of teams">
+        <a matLine routerLink="/edit/team/{{team.id}}">{{ team.name }}</a>
+        <button mat-icon-button (click)="showInfo(team.name)">
+          <mat-icon>delete</mat-icon>
+        </button>
+      </mat-list-item>
+      <mat-list-item *ngFor="let user of users">
+        <a matLine routerLink="/edit/user/{{user.id}}">{{ user.login }}</a>
+        <button mat-icon-button (click)="showInfo(user.login)">
+          <mat-icon>delete</mat-icon>
+        </button>
+      </mat-list-item>
+    </mat-nav-list>
+  </mat-card>
 </div>
-
-<mat-card>
-  <div align="center" *ngIf="matches"><h4>Matches</h4></div>
-  <div align="center" *ngIf="groups"><h4>Groups</h4></div>
-  <div align="center" *ngIf="teams"><h4>Teams</h4></div>
-  <div align="center" *ngIf="users"><h4>Users</h4></div>
-  <mat-nav-list>
-    <mat-list-item *ngFor="let match of matches">
-      <a matLine routerLink="/edit/match/{{match.id}}">
-        {{match.date | date:"h:mm:ss dd.MM.yy"}}
-        {{
-        (match.team1 === null ? 'TBD' : match.team1.name)
-        + ' - ' +
-        (match.team2 === null ? 'TBD' : match.team2.name)
-        }}
-      </a>
-      <button mat-icon-button (click)="showInfo(match.id)">
-        <mat-icon>delete</mat-icon>
-      </button>
-    </mat-list-item>
-    <mat-list-item *ngFor="let group of groups">
-      <a matLine routerLink="/edit/group/{{group.id}}">{{group.name}}</a>
-      <button mat-icon-button (click)="showInfo(group.name)">
-        <mat-icon>delete</mat-icon>
-      </button>
-    </mat-list-item>
-    <mat-list-item *ngFor="let team of teams">
-      <a matLine routerLink="/edit/team/{{team.id}}">{{ team.name }}</a>
-      <button mat-icon-button (click)="showInfo(team.name)">
-        <mat-icon>delete</mat-icon>
-      </button>
-    </mat-list-item>
-    <mat-list-item *ngFor="let user of users">
-      <a matLine routerLink="/edit/user/{{user.id}}">{{ user.login }}</a>
-      <button mat-icon-button (click)="showInfo(user.login)">
-        <mat-icon>delete</mat-icon>
-      </button>
-    </mat-list-item>
-  </mat-nav-list>
-</mat-card>
