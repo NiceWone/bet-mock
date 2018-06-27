@@ -27,6 +27,9 @@ export class AuthService {
   }
 
   get isLoggedIn() {
+    if (localStorage.getItem('token')) {
+      this.loggedIn.next(true);
+    }
     return this.loggedIn.asObservable();
   }
 
