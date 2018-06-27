@@ -13,7 +13,7 @@ const httpOptions = {
 })
 export class UserService {
 
-  private usersUrl = '//localhost:8080/api/users';
+  private usersUrl = '/api/users';
 
   constructor(private http: HttpClient) {
   }

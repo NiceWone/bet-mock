@@ -15,8 +15,8 @@ const httpOptions = {
 export class AuthService {
 
   private loggedIn = new BehaviorSubject<boolean>(false);
-  private loginUrl = '//localhost:8080/login';
-  private sigUpUrl = '//localhost:8080/signUp';
+  private loginUrl = '/api/login';
+  private sigUpUrl = '/api/signUp';
   private returnUrl: string;
 
   constructor(

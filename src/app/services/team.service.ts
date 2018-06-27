@@ -13,7 +13,7 @@ const httpOptions = {
 })
 export class TeamService {
 
-  private teamUrl = '//localhost:8080/api/teams';
+  private teamUrl = '/api/teams';
 
   constructor(private http: HttpClient) {
   }

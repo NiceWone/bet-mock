@@ -13,7 +13,7 @@ const httpOptions = {
 })
 export class MatchService {
 
-  private matchesUrl = '//localhost:8080/api/matches';
+  private matchesUrl = '/api/matches';
 
   constructor(private http: HttpClient) {
   }
