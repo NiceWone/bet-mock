@@ -38,7 +38,6 @@ export class RegisterComponent implements OnInit {
   }
 
   onSubmit() {
-    console.log(1);
     if (this.form.valid) {
       this.authService.regUser(this.form.value);
     }

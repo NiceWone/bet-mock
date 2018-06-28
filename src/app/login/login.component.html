@@ -4,8 +4,8 @@
     <mat-card-content>
 
       <form [formGroup]="form" (ngSubmit)="onSubmit()">
-
         <p>Please login to continue</p>
+
         <mat-form-field class="full-width-input">
           <input matInput placeholder="User" formControlName="login" required>
           <mat-error *ngIf="isFieldInvalid('login')">
@@ -21,8 +21,8 @@
         </mat-form-field>
 
         <mat-card-actions>
-          <button mat-raised-button color="primary">Login</button>
-          <button mat-raised-button color="primary" routerLink="/register">Rigister</button>
+          <button mat-raised-button color="primary" type="submit">Login</button>
+          <button mat-raised-button color="primary" type="button" routerLink="/register">Register</button>
         </mat-card-actions>
 
       </form>
