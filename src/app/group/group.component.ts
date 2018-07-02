@@ -26,9 +26,7 @@ export class GroupComponent implements OnInit {
 
   getGroups(): void {
     this.groupService.getGroups()
-      .subscribe(groups => {
-        this.groups = groups;
-      });
+      .subscribe(groups => this.groups = groups, () => console.log('error'));
   }
 
   private calculateAllGroups() {
