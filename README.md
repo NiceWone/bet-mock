@@ -1,6 +1,6 @@
 # Checkout by url
 
-https://bet-ang-spring.herokuapp.com/dashboard
+https://bet-ang-spring.herokuapp.com/
  
 # BetMock
 
